@@ -39,9 +39,73 @@ skills/
       templates.md              # 7 templates (chatbot, agent, extractor, etc.)
 ```
 
-## Creating New Skills
+## Contributing
 
-See [AGENTS.md](./AGENTS.md) for the skill creation guide, including directory structure, naming conventions, SKILL.md format, and packaging instructions.
+We welcome contributions from the community! This project follows the open [Agent Skills standard](https://agentskills.io) and is compatible with 30+ AI coding tools.
+
+### How to contribute
+
+1. **Fork** this repository
+2. **Create a skill** following the structure below
+3. **Test** your skill with at least 2-3 realistic prompts
+4. **Submit a PR** with a clear description of what the skill does and when it triggers
+
+### Creating a new skill
+
+```bash
+# Scaffold a new skill
+mkdir -p skills/your-skill-name/references
+
+# Create the required SKILL.md
+cat > skills/your-skill-name/SKILL.md << 'EOF'
+---
+name: your-skill-name
+description: What it does + when to trigger + relevant keywords
+---
+
+# Your Skill Name
+
+Instructions for the agent when this skill is activated.
+EOF
+```
+
+See [AGENTS.md](./AGENTS.md) for the full skill creation guide, including directory structure, naming conventions, SKILL.md format, and packaging instructions.
+
+### Skill quality checklist
+
+Before submitting a PR, make sure your skill:
+
+- [ ] Has a `SKILL.md` with `name` and `description` in frontmatter
+- [ ] Description is specific about **when** to trigger (not just what it does)
+- [ ] Instructions are clear, actionable, and explain the *why* behind rules
+- [ ] Includes examples where format/accuracy matters
+- [ ] Keeps `SKILL.md` under 500 lines (use `references/` for detailed docs)
+- [ ] Does not contain secrets, credentials, or sensitive data
+- [ ] Has been tested with realistic prompts
+
+### Contribution ideas
+
+- New skill templates for specific domains (DevOps, data science, mobile, etc.)
+- Translations of existing skills for non-English workflows
+- Improvements to existing skills based on real-world usage
+- Bug fixes and documentation updates
+
+## Open Standard
+
+This project is built on the [Agent Skills open standard](https://agentskills.io), originally developed by Anthropic and now adopted by 30+ AI platforms including Claude Code, Cursor, GitHub Copilot, Codex, Gemini CLI, and more.
+
+Skills you create here work everywhere the standard is supported. No vendor lock-in.
+
+| Platform | Support |
+|----------|---------|
+| Claude Code | Native |
+| Cursor | Native |
+| GitHub Copilot | Native |
+| Codex (OpenAI) | Native |
+| Gemini CLI | Native |
+| Windsurf, Cline, Roo Code, ... | Native |
+
+Full list at [agentskills.io](https://agentskills.io).
 
 ## References
 
@@ -55,4 +119,4 @@ See [AGENTS.md](./AGENTS.md) for the skill creation guide, including directory s
 
 ## License
 
-MIT
+MIT — use, modify, and distribute freely.
