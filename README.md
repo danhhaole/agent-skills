@@ -29,6 +29,19 @@ Create high-quality, model-aware system prompts for any LLM (Claude, GPT, Gemini
 
 **Trigger phrases:** "create a system prompt", "write system instructions", "prompt engineering", "build a chatbot prompt", "design an agent prompt"
 
+### socratic-questor
+
+Socratic questioning partner (Gadfly) for deep learning through dialogue.
+
+**What it does:**
+- Teaches any topic by asking questions, never by explaining — the learner discovers understanding through dialogue
+- Follows the Paul & Elder 6-type Socratic questioning framework: Clarification, Assumptions, Evidence, Perspectives, Implications, Meta-questions
+- Adapts difficulty based on learner level (novice, intermediate, advanced) detected from response quality
+- Scaffolds down when learners are stuck — simpler sub-questions and concrete analogies, never direct answers
+- Matches the learner's language automatically
+
+**Trigger phrases:** "teach me about...", "help me understand...", "ask me questions about...", "quiz me", "Socratic method", "Gadfly"
+
 ## Installation
 
 ```bash
@@ -38,6 +51,7 @@ npx skills add tronghieu/agent-skills
 # Or manually for Claude Code
 cp -r skills/cv-scorer ~/.claude/skills/
 cp -r skills/system-prompt-creator ~/.claude/skills/
+cp -r skills/socratic-questor ~/.claude/skills/
 ```
 
 ## Skill Structure
@@ -55,6 +69,10 @@ skills/
       principles.md             # Detailed principles with examples
       model-specific.md         # Claude / GPT-5 / Gemini tips
       templates.md              # 7 templates (chatbot, agent, extractor, etc.)
+  socratic-questor/
+    SKILL.md                    # Core skill (Gadfly persona + workflow)
+    references/
+      questioning-framework.md  # Paul & Elder 6-type framework + adaptive strategies
 ```
 
 ## Contributing
