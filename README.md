@@ -1,5 +1,7 @@
 # Agent Skills
 
+**Language / Ngôn ngữ / 语言:** [English](./README.md) | [Tiếng Việt](./README.vi.md) | [中文](./README.zh.md)
+
 A collection of skills for AI coding agents. Compatible with [Claude Code](https://code.claude.com), [Cursor](https://cursor.com), [GitHub Copilot](https://github.com/features/copilot), and [20+ other AI tools](https://agentskills.io) that support the open [Agent Skills standard](https://agentskills.io).
 
 ## Available Skills
@@ -16,6 +18,11 @@ Score candidate CVs on a 100-point scale against a Job Description.
 
 **Trigger phrases:** "review CV", "screen resume", "score candidate", "rate candidates", "shortlist applicants", "match resume to JD"
 
+**Install:**
+```bash
+npx skills add tronghieu/agent-skills --skill cv-scorer
+```
+
 ### system-prompt-creator
 
 Create high-quality, model-aware system prompts for any LLM (Claude, GPT, Gemini, open-source).
@@ -29,6 +36,11 @@ Create high-quality, model-aware system prompts for any LLM (Claude, GPT, Gemini
 
 **Trigger phrases:** "create a system prompt", "write system instructions", "prompt engineering", "build a chatbot prompt", "design an agent prompt"
 
+**Install:**
+```bash
+npx skills add tronghieu/agent-skills --skill system-prompt-creator
+```
+
 ### socratic-questor
 
 Socratic questioning partner (Gadfly) for deep learning through dialogue.
@@ -41,6 +53,11 @@ Socratic questioning partner (Gadfly) for deep learning through dialogue.
 - Matches the learner's language automatically
 
 **Trigger phrases:** "teach me about...", "help me understand...", "ask me questions about...", "quiz me", "Socratic method", "Gadfly"
+
+**Install:**
+```bash
+npx skills add tronghieu/agent-skills --skill socratic-questor
+```
 
 ## Installation
 
