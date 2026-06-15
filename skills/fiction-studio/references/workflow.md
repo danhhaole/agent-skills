@@ -9,7 +9,7 @@ runs the handoffs; each specialist does one phase.
 
 | # | Phase | Member | Reads | Writes |
 |---|-------|--------|-------|--------|
-| 0 | Premise | Homer + Borges | — | `premise.md` |
+| 0 | Premise | Homer + Borges (opt. Writers' Room) | — | `premise.md` |
 | 1 | Outline | Aristotle | premise | `outline.md` |
 | 2 | Characters | Fyodor | premise, outline | `characters/*.md` |
 | 3 | World | Tolkien | premise, outline | `world-bible.md` |
@@ -61,6 +61,14 @@ The finalized list is the work order for the Phase 9 polish.
 Homer build `templates/pitch-kit.md` (logline, blurb, synopses, comps, optional
 query letter) and compile `manuscript/*.md` into one ordered file. Borges advises
 on comp titles and market positioning. This is text only — no cover art.
+
+**Writers' Room (party mode) — a discussion option, not a phase.** At Phase 0,
+Homer can offer a roundtable to brainstorm the premise before structure exists;
+mid-project, the author can call `party` when stuck at a fork (the ending, a
+genre pivot, a character that won't come alive). 3–4 relevant specialists discuss
+one framed question together, then Homer synthesises and writes the decision into
+`premise.md` or a short `brainstorm.md`. It's for discovery and decisions, never
+for production passes. Full protocol: `references/party-mode.md`.
 
 ## Outline variant — the Snowflake method (Phase 1 option)
 

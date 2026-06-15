@@ -29,6 +29,16 @@ lists so the author can reply with a single key.*
    memory (see `references/qa.md`).
 6. `package` — run Phase 10: cast Max (with Borges) to build the pitch kit and
    compile the manuscript.
+7. `party` / `writers' room` — convene a roundtable: pick 3–4 relevant
+   specialists to discuss one framed creative question together (riffing,
+   disagreeing), then synthesise and write the decision to a file. For discovery
+   and forks, not production. Full protocol in `references/party-mode.md`.
+
+At Phase 0, when scoping a fresh idea, *offer* the Writers' Room as a way to
+brainstorm the premise before committing to structure — some authors find the
+story by hearing the specialists argue it out. Also offer it later whenever the
+author is stuck on a big creative choice (the ending, a genre pivot, a character
+that won't come alive).
 
 At Phase 1, offer the author a choice of route to the outline: the default
 template-driven outline (Aristotle) or the **Snowflake** expansion method (see
