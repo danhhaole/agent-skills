@@ -59,6 +59,24 @@ npx skills add tronghieu/agent-skills --skill system-prompt-creator
 npx skills add tronghieu/agent-skills --skill socratic-questor
 ```
 
+### fiction-studio
+
+一个完整的小说创作工作室，以一支被命名的专家智能体团队的形式运行，引导作者从一个粗略的想法走到打磨完成的书稿。
+
+**功能：**
+- 运行一支以文学大师命名的 10 人专家团队，由 **Homer**（编排者）统领：Aristotle（情节）、Fyodor（人物）、Tolkien（世界观）、Scheherazade（起草）、Oscar（对白）、Max（编辑）、Virginia（试读）、Borges（类型）、Bloom（评论）
+- 驱动一条端到端流程 — 前提 → 大纲 → 人物 → 世界观 → 场景列表 → 草稿 → 对白 → 编辑 → 试读 → 修订分类 → 润色 → 打包 — 并设有类型、连续性、铺垫呼应与敏感度的质量关卡
+- **编剧室（party mode）：** 召集 3-4 位相关专家共同头脑风暴前提或攻克一个创作岔路口，然后把决定记录到文件
+- **一致性 QA：** 一个零依赖的连续性检查器（`scripts/continuity_check.py`）加上结构化的 `canon.json` 事实源，让跨多次会话的书稿保持连贯
+- 适配长篇、中篇、短篇或系列；包含 Snowflake 大纲变体，并自动匹配作者的语言
+
+**触发短语：** "帮我写一部小说"、"我有一个故事的想法"、"发展我的人物"、"为我的奇幻构建世界"、"列出我的情节大纲"、"修改这个场景"、"我的对白太平淡"、"给我试读读者式的反馈"
+
+**安装：**
+```bash
+npx skills add tronghieu/agent-skills --skill fiction-studio
+```
+
 ## 安装
 
 ```bash
@@ -69,6 +87,7 @@ npx skills add tronghieu/agent-skills
 cp -r skills/cv-scorer ~/.claude/skills/
 cp -r skills/system-prompt-creator ~/.claude/skills/
 cp -r skills/socratic-questor ~/.claude/skills/
+cp -r skills/fiction-studio ~/.claude/skills/
 ```
 
 ## 技能结构
@@ -90,6 +109,13 @@ skills/
     SKILL.md                    # 核心技能（牛虻角色 + 工作流）
     references/
       questioning-framework.md  # Paul & Elder 6 类框架 + 自适应策略
+  fiction-studio/
+    SKILL.md                    # 核心技能（10 人智能体团队 + 流程 + 编剧室）
+    references/                 # agents/、workflow、craft、genres、qa、party-mode
+    templates/                  # premise、outline、character、world-bible、canon.json 等
+    checklists/                 # plot-structure、continuity、foreshadowing、sensitivity 等
+    scripts/
+      continuity_check.py       # 零依赖一致性检查器
 ```
 
 ## 贡献

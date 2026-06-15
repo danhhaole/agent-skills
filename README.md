@@ -59,6 +59,24 @@ Socratic questioning partner (Gadfly) for deep learning through dialogue.
 npx skills add tronghieu/agent-skills --skill socratic-questor
 ```
 
+### fiction-studio
+
+A complete prose-fiction writing studio, run as a team of named specialist agents, that guides an author from a bare idea to a polished manuscript.
+
+**What it does:**
+- Runs a team of 10 specialists named after literary masters, led by **Homer** (orchestrator): Aristotle (plot), Fyodor (character), Tolkien (world), Scheherazade (drafting), Oscar (dialogue), Max (editing), Virginia (beta read), Borges (genre), Bloom (critique)
+- Drives an end-to-end pipeline — premise → outline → characters → world → scene list → draft → dialogue → edit → beta read → revision triage → polish → package — with quality gates for genre, continuity, foreshadowing, and sensitivity
+- **Writers' Room (party mode):** convenes 3-4 relevant specialists to brainstorm a premise or work through a creative fork together, then captures the decision to a file
+- **Consistency QA:** a zero-dependency continuity checker (`scripts/continuity_check.py`) plus a structured `canon.json` source of truth keep a multi-session manuscript coherent
+- Adapts to novel, novella, short story, or series; includes the Snowflake outline variant and matches the author's language
+
+**Trigger phrases:** "help me write a novel", "I have an idea for a story", "develop my characters", "build a world for my fantasy", "outline my plot", "fix this scene", "my dialogue feels flat", "give me beta-reader feedback"
+
+**Install:**
+```bash
+npx skills add tronghieu/agent-skills --skill fiction-studio
+```
+
 ## Installation
 
 ```bash
@@ -69,6 +87,7 @@ npx skills add tronghieu/agent-skills
 cp -r skills/cv-scorer ~/.claude/skills/
 cp -r skills/system-prompt-creator ~/.claude/skills/
 cp -r skills/socratic-questor ~/.claude/skills/
+cp -r skills/fiction-studio ~/.claude/skills/
 ```
 
 ## Skill Structure
@@ -90,6 +109,13 @@ skills/
     SKILL.md                    # Core skill (Gadfly persona + workflow)
     references/
       questioning-framework.md  # Paul & Elder 6-type framework + adaptive strategies
+  fiction-studio/
+    SKILL.md                    # Core skill (team of 10 agents + pipeline + Writers' Room)
+    references/                 # agents/, workflow, craft, genres, qa, party-mode
+    templates/                  # premise, outline, character, world-bible, canon.json, ...
+    checklists/                 # plot-structure, continuity, foreshadowing, sensitivity, ...
+    scripts/
+      continuity_check.py       # Zero-dependency consistency checker (names, attrs, setups)
 ```
 
 ## Contributing
