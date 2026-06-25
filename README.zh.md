@@ -77,6 +77,23 @@ npx skills add tronghieu/agent-skills --skill socratic-questor
 npx skills add tronghieu/agent-skills --skill fiction-studio
 ```
 
+### slidewright
+
+构建交互式演示网站 —— 投影到房间、由单个演讲者操控的幻灯片。
+
+**技能功能：**
+- 两条路线：**无需构建的单个 HTML 文件**（浏览器打开即用，无需安装）或 **Vite + React + TypeScript** 项目 —— 自动为任务选择合适的路线
+- 一条命令完成脚手架；React 版本调用官方 Vite 工具并安装**最新**的 React、Tailwind、Framer Motion 与 Lucide（不锁定版本，使每个 deck 都从当前工具链起步）
+- 强制投影纪律：字号下限确保从房间后排也能看清、必须有导航滑条 + 幻灯片编号、交互仅限演讲者（无表单、不收集数据）
+- 附带版式配方（标题、要点、双栏对比、大数字、引言、全幅图片）、演讲者备注约定，以及导出 PDF 指南
+
+**触发短语：** "构建演示文稿"、"做一套幻灯片"、"交互式演示网站"、"dựng deck / làm slide / bài thuyết trình"、"给我的 deck 加一页"、"把幻灯片导出为 PDF"
+
+**安装：**
+```bash
+npx skills add tronghieu/agent-skills --skill slidewright
+```
+
 ## 安装
 
 ```bash
@@ -88,6 +105,7 @@ cp -r skills/cv-scorer ~/.claude/skills/
 cp -r skills/system-prompt-creator ~/.claude/skills/
 cp -r skills/socratic-questor ~/.claude/skills/
 cp -r skills/fiction-studio ~/.claude/skills/
+cp -r skills/slidewright ~/.claude/skills/
 ```
 
 ## 技能结构
@@ -116,6 +134,17 @@ skills/
     checklists/                 # plot-structure、continuity、foreshadowing、sensitivity 等
     scripts/
       continuity_check.py       # 零依赖一致性检查器
+  slidewright/
+    SKILL.md                    # 核心技能（投影思维模型 + 工作流 + 路线选择）
+    references/
+      design-system.md          # 字号下限、版式配方、动效、配色
+      html-track.md             # 无需构建的单文件 HTML deck
+      react-track.md            # Vite + React（Deck/Slide/slides）架构
+      export-pdf.md             # 导出 PDF + 演讲者备注约定
+    scripts/
+      new-html-deck.sh          # 生成无需构建的 HTML deck
+      new-react-deck.sh         # 生成 Vite + React deck（最新依赖，不锁版本）
+      export-deck-pdf.py        # 导出内容完整的 PDF（等待渲染、展开隐藏内容）
 ```
 
 ## 贡献

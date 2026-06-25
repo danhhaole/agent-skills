@@ -77,6 +77,23 @@ A complete prose-fiction writing studio, run as a team of named specialist agent
 npx skills add tronghieu/agent-skills --skill fiction-studio
 ```
 
+### slidewright
+
+Build interactive presentation websites — slide decks projected to a room and driven by one presenter.
+
+**What it does:**
+- Two tracks: a **zero-build single HTML file** (open it in a browser, no install) or a **Vite + React + TypeScript** project — picks the right one for the job
+- Scaffolds with one command; the React scaffold runs the official Vite tool and installs the **latest** React, Tailwind, Framer Motion and Lucide (no pinned versions, so each deck starts on current tooling)
+- Enforces projection discipline: a typography floor so text reads from the back of a room, a required navigation slider + slide number, and presenter-only interaction (no forms, no data collection)
+- Ships layout recipes (title, bullets, two-column compare, big stat, quote, full-bleed image), a speaker-notes convention, and PDF export guidance
+
+**Trigger phrases:** "build a presentation", "make a slide deck", "interactive presentation website", "dựng deck / làm slide / bài thuyết trình", "add a slide to my deck", "export slides to PDF"
+
+**Install:**
+```bash
+npx skills add tronghieu/agent-skills --skill slidewright
+```
+
 ## Installation
 
 ```bash
@@ -88,6 +105,7 @@ cp -r skills/cv-scorer ~/.claude/skills/
 cp -r skills/system-prompt-creator ~/.claude/skills/
 cp -r skills/socratic-questor ~/.claude/skills/
 cp -r skills/fiction-studio ~/.claude/skills/
+cp -r skills/slidewright ~/.claude/skills/
 ```
 
 ## Skill Structure
@@ -116,6 +134,17 @@ skills/
     checklists/                 # plot-structure, continuity, foreshadowing, sensitivity, ...
     scripts/
       continuity_check.py       # Zero-dependency consistency checker (names, attrs, setups)
+  slidewright/
+    SKILL.md                    # Core skill (projection mental model + workflow + track selection)
+    references/
+      design-system.md          # Typography floor, layout recipes, motion, palette
+      html-track.md             # Plain-HTML single-file deck
+      react-track.md            # Vite + React (Deck/Slide/slides) architecture
+      export-pdf.md             # PDF export + speaker-notes convention
+    scripts/
+      new-html-deck.sh          # Scaffold a zero-build HTML deck
+      new-react-deck.sh         # Scaffold a Vite + React deck (latest deps, unpinned)
+      export-deck-pdf.py        # Content-complete PDF export (waits for render, reveals hidden content)
 ```
 
 ## Contributing
