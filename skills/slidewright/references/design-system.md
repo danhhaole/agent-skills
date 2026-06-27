@@ -21,36 +21,54 @@ Two mistakes follow from forgetting this, and both are common:
 
 ## Typography floor (non-negotiable)
 
-Author on a fixed **1920×1080** canvas (1pt ≈ 2px). The "default" column is where to
-land for ordinary slides — comfortable and legible without shouting. The min is the hard
-floor; the ceiling is for the occasional hero/title only.
+Sizes are projection sizes on a **1920×1080** screen (1pt ≈ 2px). There is **no single
+"correct" size** — each role has a **range**, and you pick within it per slide based on how
+much content is on it. The floor is the hard bottom; the hero ceiling is the hard top.
 
-| Role                | Floor (min) | Default | Ceiling (hero only) | default px on 1080 |
-| ------------------- | ----------- | ------- | ------------------- | ------------------ |
-| Body / bullet       | 20pt        | 21pt    | 26pt                | **42px**           |
-| Subtitle            | 24pt        | 27pt    | 32pt                | 54px               |
-| Main title          | 36pt        | 44pt    | 52pt                | 88px               |
-| Caption / slide no. | 18pt        | 17pt*   | 22pt                | 34px               |
+| Role                | Floor (hard min) | Projection range — pick per slide | Hero ceiling |
+| ------------------- | ---------------- | --------------------------------- | ------------ |
+| Body / bullet       | 20pt · 40px      | **40–48px**                       | 52px         |
+| Subtitle / lead     | 24pt · 48px      | **48–60px**                       | 64px         |
+| Section head (h2)   | —                | **52–64px**                       | 72px         |
+| Main title (h1)     | 36pt · 72px      | **80–104px**                      | 120px        |
+| Caption / slide no. | 16pt · 32px*     | **32–38px**                       | —            |
 
-\* slide-number/caption is the one role allowed just under the body floor (never < 18pt
-= 36px), since it isn't primary reading.
+\* caption/slide-number is the one role allowed below the body floor (never < 16pt = 32px),
+since it isn't primary reading.
 
-- **Nothing smaller than 20pt** (≈40px) for body/bullets. Don't default to the ceiling —
-  oversized type looks shouty and crowds the slide. Reach for the ceiling only on a single
-  hero line (a cover title, one big stat). Bump *that one element* up, not the globals.
-- **Don't use fixed `px`/`rem` for slide text** unless you author on a fixed canvas
-  that is then scaled (the plain-HTML template does exactly this). For fluid layouts
-  use frame-relative units: `vh`/`vw`, `clamp()`.
+**How to pick within the range — this is the point:**
+
+- **Text-heavy slide** (several bullets, a long quote, a dense table): drop toward the
+  **bottom of the range** — down to the floor if needed — so the content fits without
+  overflowing or scrolling. A slide that overflows is worse than one a notch smaller.
+- **Sparse slide** (a few words, one stat, a cover): move toward the **top of the range**,
+  or use the hero ceiling on a *single* hero element (cover title, one big number). Bump
+  *that one element*, not the globals.
+- **Ordinary slide:** land in the middle of the range. Don't default to the ceiling —
+  oversized type looks shouty and crowds the slide.
+- **Never below the floor**, whatever the content. If it still won't fit at the floor, the
+  slide has too much on it — split it into two, don't shrink past the floor.
+
+- **Don't use fixed `px`/`rem` for slide text.** Both templates are fluid, so use
+  frame-relative units: `clamp(min, vw/vh, max)` for type, `em`/`%`/`vh` for spacing —
+  the `max` is the projection size you pick from the range above. Fixed px only belongs in
+  a fixed-canvas deck that is then scaled (not the default).
 - **Acceptance test:** zoom the screen to ~33% (or stand 3–4 m back). If you can still
-  read the bullets, it passes.
+  read the bullets, it passes — and nothing is clipped at the slide edges.
 
-Two ways to satisfy the floor, both used in the templates:
+Two ways to satisfy the floor:
 
-- **Fixed canvas + scale** (plain HTML): everything sized in px on a 1920×1080 stage,
-  then `transform: scale()` to fit. Sizes are exact and predictable. Best default.
-- **Fluid `clamp()`** (React title slide): e.g. headline `clamp(56px, 7.5vw, 100px)`,
-  lead `clamp(26px, 2.8vw, 40px)`, body `clamp(40px, 4.6vh, 48px)`. Good when you want
-  the layout to breathe across screen sizes without a fixed stage.
+- **Fluid `clamp()`** (both templates' default): size text as `clamp(min, vw/vh, max)`,
+  where the **`max` is the size you chose from the range above** for that role on that
+  slide. E.g. an ordinary body line `clamp(28px, 2.6vw, 44px)`; the same line on a
+  text-heavy slide tightened to `clamp(28px, 2.4vw, 40px)`; a hero headline opened up to
+  `clamp(56px, 6.4vw, 112px)`. The `min` is a small-window fallback, the `max` is the
+  projection size, the middle scales with the viewport. Slides fill the whole screen at
+  any aspect ratio — no letterbox/pillarbox bars. **Best default.**
+- **Fixed canvas + scale**: size everything in px on a 1920×1080 stage, then
+  `transform: scale()` to fit. Sizes are pixel-exact, but the deck letterboxes/pillarboxes
+  on any non-16:9 screen (16:10 laptops, ultrawides, resized windows). Use only when you
+  truly need pixel-locked layout and control the projector's aspect ratio.
 
 ## Content discipline
 

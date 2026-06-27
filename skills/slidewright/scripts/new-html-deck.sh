@@ -9,8 +9,9 @@
 #   <target-dir>/<deck-name>/<deck-name>-notes.md   speaker notes (not projected)
 #
 # The deck runs by opening index.html directly in a browser — no server, no install.
-# The template renders on a fixed 1920x1080 stage that scales to fit any screen,
-# so font sizes stay correct for projection. Edit the <section class="slide"> blocks.
+# The template is fluid: slides fill the whole viewport at any aspect ratio (no fixed
+# stage, no letterbox/pillarbox bars). Type scales with clamp() so it stays
+# projection-legible. Edit the <section class="slide"> blocks.
 
 set -euo pipefail
 
@@ -51,38 +52,38 @@ cat > "$DECK_DIR/index.html" <<HTMLEOF
   <style>
     :root { --accent:#9d6248; --ink:#1f2430; --bg:#f8f3e7; --soft:#6d6a66; }
     * { box-sizing:border-box; margin:0; padding:0; }
-    html, body { width:100%; height:100%; overflow:hidden; background:#0d0d0f; }
+    html, body { width:100%; height:100%; overflow:hidden; background:var(--bg); }
     body { font-family:'Plus Jakarta Sans', system-ui, sans-serif; color:var(--ink); }
     h1,h2,h3 { font-family:'Outfit', system-ui, sans-serif; }
 
-    /* Fixed design canvas. Everything is authored at 1920x1080, then scaled
-       to fit the viewport, so text never shrinks below projection-legible sizes. */
-    #viewport { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; }
-    #stage {
-      position:relative; width:1920px; height:1080px; flex:none;
-      transform-origin:center center; background:var(--bg);
-      overflow:hidden;
-    }
+    /* Fluid layout. Slides fill the whole viewport at any aspect ratio — no fixed
+       stage, so no letterbox/pillarbox bars on 16:10 laptops, ultrawides, or resized
+       windows. Type scales with clamp() so it stays projection-legible. Author with
+       clamp()/em/%/vh — not fixed px — so the deck breathes across screen sizes. */
+    #viewport { position:fixed; inset:0 0 64px 0; overflow:hidden; }
     .slide {
-      position:absolute; inset:0; padding:96px 120px;
+      position:absolute; inset:0;
+      padding:clamp(40px,5.5vh,96px) clamp(48px,6.2vw,140px);
       display:none; flex-direction:column;
       opacity:0; transition:opacity .35s ease;
     }
     .slide.active { display:flex; opacity:1; }
 
-    /* Typography — authored on the 1920x1080 canvas (1pt ≈ 2px). These sit at the
-       lower-middle of the legible range: comfortable, not oversized. Body stays
-       above the 40px floor so it still reads from the back of a room. Bump a
-       specific hero/title up per slide if it needs more presence — don't raise
-       these globals. */
-    .slide          { font-size:42px; line-height:1.45; }
-    .slide h1       { font-size:88px;  line-height:1.04; letter-spacing:-.03em; font-weight:900; }
-    .slide h2       { font-size:54px;  line-height:1.12; font-weight:800; }
-    .slide .lead    { font-size:44px;  color:var(--soft); }
-    .slide .caption { font-size:34px;  color:var(--soft); }
-    .slide ul       { list-style:none; display:flex; flex-direction:column; gap:26px; }
-    .slide li       { display:flex; gap:22px; align-items:flex-start; }
-    .slide li::before { content:''; flex:none; width:18px; height:18px; margin-top:20px; border-radius:5px; background:var(--accent); }
+    /* Typography — fluid clamp(min, vw/vh, max). These are MID-RANGE defaults; each
+       role has a legible range (see references/design-system.md) and the `max` here is
+       the projection size. Tune the `max` PER SLIDE, not these globals:
+         - text-heavy slide  -> lower the max toward the floor so it doesn't overflow
+                                 (body floor 40px; caption 32px; never below)
+         - sparse/hero slide -> raise the max toward the ceiling for presence.
+       Override on the specific <section>/element; keep these globals as the default. */
+    .slide          { font-size:clamp(28px,2.6vw,44px); line-height:1.45; }
+    .slide h1       { font-size:clamp(56px,6.4vw,104px); line-height:1.04; letter-spacing:-.03em; font-weight:900; }
+    .slide h2       { font-size:clamp(38px,3.4vw,60px);  line-height:1.12; font-weight:800; }
+    .slide .lead    { font-size:clamp(30px,2.9vw,48px);  color:var(--soft); }
+    .slide .caption { font-size:clamp(22px,1.9vw,36px);  color:var(--soft); }
+    .slide ul       { list-style:none; display:flex; flex-direction:column; gap:clamp(16px,2.4vh,28px); }
+    .slide li       { display:flex; gap:.55em; align-items:flex-start; }
+    .slide li::before { content:''; flex:none; width:.42em; height:.42em; margin-top:.5em; border-radius:.12em; background:var(--accent); }
 
     /* Bottom navigation bar — required on every deck. */
     #nav {
@@ -101,40 +102,38 @@ cat > "$DECK_DIR/index.html" <<HTMLEOF
 </head>
 <body>
   <div id="viewport">
-    <div id="stage">
 
-      <!-- ============ SLIDES ============ -->
-      <!-- Each <section class="slide"> is one slide. The first one needs class "active". -->
+    <!-- ============ SLIDES ============ -->
+    <!-- Each <section class="slide"> is one slide. The first one needs class "active". -->
 
-      <section class="slide active" style="justify-content:space-between;">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-          <span style="display:inline-flex; align-items:center; background:rgba(157,98,72,.1); color:var(--accent); font-weight:700; padding:14px 28px; border-radius:999px; font-size:32px;">__NAME__</span>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:36px;">
-          <h1>__TITLE__</h1>
-          <p class="lead" style="max-width:1300px;">Thay câu này bằng một dòng dẫn nói rõ bài này nói về điều gì — ngắn, thẳng, như đang nói trên sân khấu.</p>
-        </div>
-        <p class="caption">Tên người trình bày · Vai trò</p>
-      </section>
+    <section class="slide active" style="justify-content:space-between;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+        <span style="display:inline-flex; align-items:center; background:rgba(157,98,72,.1); color:var(--accent); font-weight:700; padding:.45em .85em; border-radius:999px; font-size:clamp(20px,1.7vw,32px);">__NAME__</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:clamp(20px,3vh,40px);">
+        <h1>__TITLE__</h1>
+        <p class="lead" style="max-width:28em;">Thay câu này bằng một dòng dẫn nói rõ bài này nói về điều gì — ngắn, thẳng, như đang nói trên sân khấu.</p>
+      </div>
+      <p class="caption">Tên người trình bày · Vai trò</p>
+    </section>
 
-      <section class="slide" style="gap:48px; justify-content:center;">
-        <h2>Tiêu đề slide nội dung</h2>
-        <ul>
-          <li>Ý chính thứ nhất — ngắn gọn, mỗi dòng một ý.</li>
-          <li>Ý chính thứ hai — dùng visual thật khi cần minh họa.</li>
-          <li>Ý chính thứ ba — tránh nhồi quá nhiều chữ vào một slide.</li>
-        </ul>
-      </section>
+    <section class="slide" style="gap:clamp(24px,4vh,52px); justify-content:center;">
+      <h2>Tiêu đề slide nội dung</h2>
+      <ul>
+        <li>Ý chính thứ nhất — ngắn gọn, mỗi dòng một ý.</li>
+        <li>Ý chính thứ hai — dùng visual thật khi cần minh họa.</li>
+        <li>Ý chính thứ ba — tránh nhồi quá nhiều chữ vào một slide.</li>
+      </ul>
+    </section>
 
-      <section class="slide" style="align-items:center; justify-content:center; text-align:center;">
-        <h1 style="max-width:1500px;">Một câu trích dẫn lớn để nhấn mạnh.</h1>
-        <p class="caption" style="margin-top:40px;">— Nguồn trích dẫn</p>
-      </section>
+    <section class="slide" style="align-items:center; justify-content:center; text-align:center;">
+      <h1 style="max-width:16em;">Một câu trích dẫn lớn để nhấn mạnh.</h1>
+      <p class="caption" style="margin-top:1em;">— Nguồn trích dẫn</p>
+    </section>
 
-      <!-- Copy a <section class="slide"> block above to add more slides. -->
-      <!-- ============ /SLIDES ============ -->
+    <!-- Copy a <section class="slide"> block above to add more slides. -->
+    <!-- ============ /SLIDES ============ -->
 
-    </div>
   </div>
 
   <nav id="nav">
@@ -145,7 +144,6 @@ cat > "$DECK_DIR/index.html" <<HTMLEOF
   </nav>
 
   <script>
-    const stage = document.getElementById('stage');
     const slides = Array.from(document.querySelectorAll('.slide'));
     const dotsBox = document.getElementById('dots');
     const counter = document.getElementById('counter');
@@ -181,14 +179,8 @@ cat > "$DECK_DIR/index.html" <<HTMLEOF
       else if (e.key === 'End') go(slides.length - 1);
     });
 
-    // Scale the 1920x1080 stage to fit the viewport (leaving room for the nav bar).
-    function fit() {
-      const navH = 64;
-      const scale = Math.min(window.innerWidth / 1920, (window.innerHeight - navH) / 1080);
-      stage.style.transform = 'scale(' + scale + ')';
-    }
-    window.addEventListener('resize', fit);
-    fit();
+    // Fluid layout: slides fill #viewport via CSS, so there is nothing to scale on
+    // resize. Type uses clamp(), so it adapts to the viewport automatically.
     render();
   </script>
 </body>

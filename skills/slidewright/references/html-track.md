@@ -15,10 +15,11 @@ speaker-notes file. Open with `open <deck-name>/index.html`.
 
 ## How the template works
 
-- **Fixed canvas.** Everything is authored on a `1920×1080` `#stage`. A `fit()` function
-  scales the stage with `transform: scale()` to fit the viewport (minus the nav bar), so
-  px sizes stay exact and projection-legible. This is why the CSS uses plain px — it is
-  the fixed-canvas approach from the design system.
+- **Fluid layout.** Slides are positioned `absolute; inset:0` inside `#viewport` and fill
+  the whole screen at any aspect ratio — no fixed stage, so **no letterbox/pillarbox bars**
+  on 16:10 laptops, ultrawides, or resized windows. Type scales with `clamp(min, vw/vh,
+  max)` so it stays projection-legible; spacing uses `em`/`%`/`vh`. There is nothing to
+  scale on resize.
 - **Slides** are `<section class="slide">` elements inside `#stage`. The first has
   `class="slide active"`. JS shows one at a time and cross-fades.
 - **Navigation** (required) is the bottom `#nav`: prev/next buttons, a generated dot
@@ -32,7 +33,11 @@ speaker-notes file. Open with `open <deck-name>/index.html`.
 
 - Duplicate a `<section class="slide">...</section>` block and edit it. Order in the file
   is the slide order; dots and counter update automatically.
-- Keep px sizes on the 1920×1080 canvas: body ≥ 40px, never below 36px for captions.
+- Use fluid units for any new sizing: `clamp(min, vw/vh, max)` for type, `em`/`%`/`vh`
+  for spacing and max-widths. Pick the `max` from each role's range in
+  `references/design-system.md` based on how much content the slide holds — tighten toward
+  the floor on text-heavy slides so nothing overflows, open up on sparse/hero slides.
+  Never below the floor (body 40px, caption 32px). Don't hard-code fixed px.
 - Put images in `assets/` and reference them with a relative path (`assets/foo.png`).
 - For a step reveal, give elements `style="opacity:0"` and flip them on a click/keyboard
   handler — but prefer splitting into more slides; it's simpler and more robust.

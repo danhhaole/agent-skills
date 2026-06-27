@@ -112,7 +112,9 @@ def main() -> int:
                 seen.add(key); uniq.append(d)
         dots = uniq
 
-        # Prefer screenshotting the fixed stage (HTML track) for an exact 1920x1080 frame.
+        # Fluid decks fill the viewport, so a full-page screenshot at the configured
+        # width/height is already an exact frame. Older fixed-canvas decks expose a
+        # #stage element — screenshot that directly for a pixel-exact 1920x1080 frame.
         stage = page.query_selector("#stage")
 
         def shoot():
