@@ -94,6 +94,25 @@ Build interactive presentation websites — slide decks projected to a room and 
 npx skills add tronghieu/agent-skills --skill slidewright
 ```
 
+### diataxis-writer
+
+Write, restructure, classify, and review documentation using the Diataxis framework.
+
+**Skill README:** [diataxis-writer](./skills/diataxis-writer/README.md)
+
+**What it does:**
+- Classifies docs into tutorials, how-to guides, references, and explanations
+- Writes and restructures docs, knowledge bases, onboarding/process docs, and product/API docs
+- Reviews documentation for Diataxis fit, audience intent, task flow, and missing context
+- Helps turn mixed or messy docs into clearer learning, task, information, or understanding material
+
+**Trigger phrases:** "use Diataxis", "classify this doc", "restructure documentation", "review these docs", "write a how-to guide", "create API reference docs", "improve onboarding docs", "organize a knowledge base"
+
+**Install:**
+```bash
+npx skills add tronghieu/agent-skills --skill diataxis-writer
+```
+
 ## Installation
 
 ```bash
@@ -106,6 +125,7 @@ cp -r skills/system-prompt-creator ~/.claude/skills/
 cp -r skills/socratic-questor ~/.claude/skills/
 cp -r skills/fiction-studio ~/.claude/skills/
 cp -r skills/slidewright ~/.claude/skills/
+cp -r skills/diataxis-writer ~/.claude/skills/
 ```
 
 ## Skill Structure
@@ -145,6 +165,17 @@ skills/
       new-html-deck.sh          # Scaffold a zero-build HTML deck
       new-react-deck.sh         # Scaffold a Vite + React deck (latest deps, unpinned)
       export-deck-pdf.py        # Content-complete PDF export (waits for render, reveals hidden content)
+  diataxis-writer/
+    SKILL.md                    # Core skill (Diataxis writing, classification, restructuring, review)
+    README.md                   # English skill README
+    README.vi.md                # Vietnamese skill README
+    README.zh.md                # Chinese skill README
+    references/
+      diataxis-patterns.md      # Diataxis patterns, diagnostics, and examples
+    scripts/
+      classify-doc.sh           # Classify documentation by Diataxis type
+    evals/
+      evals.json                # Evaluation cases
 ```
 
 ## Contributing

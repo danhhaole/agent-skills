@@ -94,6 +94,25 @@ npx skills add tronghieu/agent-skills --skill fiction-studio
 npx skills add tronghieu/agent-skills --skill slidewright
 ```
 
+### diataxis-writer
+
+使用 Diataxis 框架编写、重构、分类和审查文档。
+
+**技能 README：** [diataxis-writer](./skills/diataxis-writer/README.zh.md)
+
+**功能：**
+- 将文档分类为教程、操作指南、参考资料和解释说明
+- 编写和重构 docs、知识库、入职/流程文档，以及产品/API 文档
+- 按 Diataxis 匹配度、读者意图、任务流程和缺失上下文审查文档
+- 帮助把混杂或混乱的文档整理成更清晰的学习、任务、信息或理解材料
+
+**触发短语：** "使用 Diataxis"、"给这篇文档分类"、"重构文档"、"审查这些 docs"、"写一篇操作指南"、"创建 API 参考文档"、"改进入职文档"、"整理知识库"
+
+**安装：**
+```bash
+npx skills add tronghieu/agent-skills --skill diataxis-writer
+```
+
 ## 安装
 
 ```bash
@@ -106,6 +125,7 @@ cp -r skills/system-prompt-creator ~/.claude/skills/
 cp -r skills/socratic-questor ~/.claude/skills/
 cp -r skills/fiction-studio ~/.claude/skills/
 cp -r skills/slidewright ~/.claude/skills/
+cp -r skills/diataxis-writer ~/.claude/skills/
 ```
 
 ## 技能结构
@@ -145,6 +165,17 @@ skills/
       new-html-deck.sh          # 生成无需构建的 HTML deck
       new-react-deck.sh         # 生成 Vite + React deck（最新依赖，不锁版本）
       export-deck-pdf.py        # 导出内容完整的 PDF（等待渲染、展开隐藏内容）
+  diataxis-writer/
+    SKILL.md                    # 核心技能（Diataxis 写作、分类、重构、审查）
+    README.md                   # 英文技能 README
+    README.vi.md                # 越南语技能 README
+    README.zh.md                # 中文技能 README
+    references/
+      diataxis-patterns.md      # Diataxis 模式、诊断和示例
+    scripts/
+      classify-doc.sh           # 按 Diataxis 类型分类文档
+    evals/
+      evals.json                # 评估用例
 ```
 
 ## 贡献
