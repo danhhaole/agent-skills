@@ -61,8 +61,10 @@ Create reference docs for this CLI command and keep them easy to scan.
 
 这个技能还包含一个启发式脚本，用于快速判断文档中的 Diataxis 信号：
 
+从技能目录运行：
+
 ```bash
-bash /mnt/skills/user/diataxis-writer/scripts/classify-doc.sh path/to/doc.md
+bash ./scripts/classify-doc.sh path/to/doc.md
 ```
 
 这个脚本只适合快速诊断。最终判断仍应基于 reader job 和文档上下文。

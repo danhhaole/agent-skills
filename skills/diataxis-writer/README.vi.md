@@ -82,8 +82,10 @@ Tạo reference docs cho CLI command này, giữ nó dễ tra cứu.
 
 Skill cũng có script heuristic để phân loại tín hiệu Diataxis trong tài liệu:
 
+Chạy lệnh từ thư mục của skill:
+
 ```bash
-bash /mnt/skills/user/diataxis-writer/scripts/classify-doc.sh path/to/doc.md
+bash ./scripts/classify-doc.sh path/to/doc.md
 ```
 
 Script này chỉ hỗ trợ chẩn đoán nhanh. Quyết định cuối cùng vẫn nên dựa trên

@@ -150,14 +150,16 @@ Useful split patterns:
 Use the classifier as a quick heuristic when reviewing an existing document. It
 does not replace editorial judgment, but it can surface mixed signals quickly.
 
+Run it from the skill directory:
+
 ```bash
-bash /mnt/skills/user/diataxis-writer/scripts/classify-doc.sh path/to/doc.md
+bash ./scripts/classify-doc.sh path/to/doc.md
 ```
 
 The script also accepts stdin:
 
 ```bash
-cat path/to/doc.md | bash /mnt/skills/user/diataxis-writer/scripts/classify-doc.sh
+cat path/to/doc.md | bash ./scripts/classify-doc.sh
 ```
 
 ## Output Format

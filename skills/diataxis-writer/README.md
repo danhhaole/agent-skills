@@ -86,8 +86,10 @@ Create reference docs for this CLI command and keep them easy to scan.
 The skill also includes a heuristic script for classifying Diataxis signals in a
 document:
 
+Run it from the skill directory:
+
 ```bash
-bash /mnt/skills/user/diataxis-writer/scripts/classify-doc.sh path/to/doc.md
+bash ./scripts/classify-doc.sh path/to/doc.md
 ```
 
 The script is only a quick diagnostic aid. The final decision should still be
