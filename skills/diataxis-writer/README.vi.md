@@ -101,7 +101,7 @@ npx skills add tronghieu/agent-skills --skill diataxis-writer
 
 ### 2. Cài Đặt Thủ Công (Cho người dùng cơ bản)
 
-1. **Tải về:** Truy cập trang [Releases](https://github.com/tronghieu/agent-skills/releases) (hoặc thư mục `skills/` trong kho lưu trữ) và tải file `diataxis-writer.zip`.
+1. **Tải về:** Truy cập thư mục `skills/` trong kho lưu trữ này và tải file `diataxis-writer.zip`.
 2. **Giải nén & Copy:** Giải nén file `diataxis-writer.zip` và copy thư mục `diataxis-writer` vào một trong các vị trí sau:
 
 **Cho một dự án cụ thể:**

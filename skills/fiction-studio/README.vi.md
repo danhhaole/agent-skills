@@ -55,7 +55,7 @@ npx skills add tronghieu/agent-skills --skill fiction-studio
 
 ### 2. Cài Đặt Thủ Công (Cho người dùng cơ bản)
 
-1. **Tải về:** Truy cập trang [Releases](https://github.com/tronghieu/agent-skills/releases) (hoặc thư mục `skills/` trong kho lưu trữ) và tải file `fiction-studio.zip`.
+1. **Tải về:** Truy cập thư mục `skills/` trong kho lưu trữ này và tải file `fiction-studio.zip`.
 2. **Giải nén & Copy:** Giải nén file `fiction-studio.zip` và copy thư mục `fiction-studio` vào một trong các vị trí sau:
 
 **Cho một dự án cụ thể:**

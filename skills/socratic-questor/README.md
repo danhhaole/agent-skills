@@ -52,7 +52,7 @@ npx skills add tronghieu/agent-skills --skill socratic-questor
 
 ### 2. Manual Installation (For Non-Technical Users)
 
-1. **Download:** Go to the [Releases page](https://github.com/tronghieu/agent-skills/releases) (or the `skills/` folder in the repository) and download `socratic-questor.zip`.
+1. **Download:** Go to the `skills/` folder in this repository and download `socratic-questor.zip`.
 2. **Extract & Copy:** Extract `socratic-questor.zip` and copy the `socratic-questor` folder into one of the following directories:
 
 **For a Specific Project:**

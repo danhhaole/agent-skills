@@ -135,7 +135,7 @@ npx skills add tronghieu/agent-skills
 
 You can download the ready-to-use `.zip` files for each skill and extract them to your preferred location.
 
-1. **Download:** Go to the `skills/` folder in this repository or the Releases page and download the `.zip` file for the skill you want.
+1. **Download:** Go to the `skills/` folder in this repository and download the `.zip` file for the skill you want.
 2. **Extract & Copy:** Extract the `.zip` file and copy the skill folder into one of the following directories:
 
 **For a Specific Project:**

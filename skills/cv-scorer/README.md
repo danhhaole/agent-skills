@@ -54,7 +54,7 @@ npx skills add tronghieu/agent-skills --skill cv-scorer
 
 ### 2. Manual Installation (For Non-Technical Users)
 
-1. **Download:** Go to the [Releases page](https://github.com/tronghieu/agent-skills/releases) (or the `skills/` folder in the repository) and download `cv-scorer.zip`.
+1. **Download:** Go to the `skills/` folder in this repository and download `cv-scorer.zip`.
 2. **Extract & Copy:** Extract `cv-scorer.zip` and copy the `cv-scorer` folder into one of the following directories:
 
 **For a Specific Project:**

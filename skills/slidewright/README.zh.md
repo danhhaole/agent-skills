@@ -50,7 +50,7 @@ npx skills add tronghieu/agent-skills --skill slidewright
 
 ### 2. 手动安装（适合非技术用户）
 
-1. **下载：** 转到 [Releases 页面](https://github.com/tronghieu/agent-skills/releases)（或本仓库的 `skills/` 文件夹）下载 `slidewright.zip` 文件。
+1. **下载：** 转到此仓库的 `skills/` 文件夹下载 `slidewright.zip` 文件。
 2. **解压和复制：** 解压 `slidewright.zip` 并将 `slidewright` 文件夹复制到以下目录之一：
 
 **针对特定项目：**

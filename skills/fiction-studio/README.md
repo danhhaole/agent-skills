@@ -55,7 +55,7 @@ npx skills add tronghieu/agent-skills --skill fiction-studio
 
 ### 2. Manual Installation (For Non-Technical Users)
 
-1. **Download:** Go to the [Releases page](https://github.com/tronghieu/agent-skills/releases) (or the `skills/` folder in the repository) and download `fiction-studio.zip`.
+1. **Download:** Go to the `skills/` folder in this repository and download `fiction-studio.zip`.
 2. **Extract & Copy:** Extract `fiction-studio.zip` and copy the `fiction-studio` folder into one of the following directories:
 
 **For a Specific Project:**

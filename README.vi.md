@@ -135,7 +135,7 @@ npx skills add tronghieu/agent-skills
 
 Bạn có thể tải các file `.zip` đã đóng gói sẵn cho từng skill và giải nén vào thư mục mong muốn.
 
-1. **Tải về:** Truy cập thư mục `skills/` trong kho lưu trữ này hoặc trang Releases và tải file `.zip` của skill bạn muốn.
+1. **Tải về:** Truy cập thư mục `skills/` trong kho lưu trữ này và tải file `.zip` của skill bạn muốn.
 2. **Giải nén & Copy:** Giải nén file `.zip` và copy thư mục skill vào một trong các vị trí sau:
 
 **Cho một dự án cụ thể:**
