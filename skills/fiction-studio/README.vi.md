@@ -44,3 +44,23 @@ Lời thoại của nhân vật trong chương này nghe hơi gượng. Nhờ Os
 ```text
 Hãy gọi Ban biên kịch họp bàn tròn để brainstorm cách giải quyết nút thắt ở cuối truyện trinh thám này.
 ```
+
+## Cài Đặt
+
+### 1. Dùng CLI (Khuyến nghị)
+
+```bash
+npx skills add tronghieu/agent-skills --skill fiction-studio
+```
+
+### 2. Cài Đặt Thủ Công (Cho người dùng cơ bản)
+
+1. **Tải về:** Truy cập trang [Releases](https://github.com/tronghieu/agent-skills/releases) (hoặc thư mục `skills/` trong kho lưu trữ) và tải file `fiction-studio.zip`.
+2. **Giải nén & Copy:** Giải nén file `fiction-studio.zip` và copy thư mục `fiction-studio` vào một trong các vị trí sau:
+
+**Cho một dự án cụ thể:**
+Copy thư mục `fiction-studio` vào `.agents/skills/` hoặc `.claude/skills/` trong thư mục gốc dự án của bạn.
+
+**Cài đặt toàn cục (Dùng cho mọi dự án):**
+* **Mac / Linux:** `~/.agents/skills/` hoặc `~/.claude/skills/`
+* **Windows:** `%USERPROFILE%\.agents\skills\` hoặc `%USERPROFILE%\.claude\skills\` (thường là `C:\Users\<Tên_Của_Bạn>`)

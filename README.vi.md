@@ -125,68 +125,25 @@ npx skills add tronghieu/agent-skills --skill diataxis-writer
 
 ## Cài Đặt
 
+### 1. Dùng CLI (Khuyến nghị)
+
 ```bash
-# Dùng skills CLI (khuyến nghị)
 npx skills add tronghieu/agent-skills
-
-# Hoặc cài thủ công cho Claude Code
-cp -r skills/cv-scorer ~/.claude/skills/
-cp -r skills/system-prompt-creator ~/.claude/skills/
-cp -r skills/socratic-questor ~/.claude/skills/
-cp -r skills/fiction-studio ~/.claude/skills/
-cp -r skills/slidewright ~/.claude/skills/
-cp -r skills/diataxis-writer ~/.claude/skills/
 ```
 
-## Cấu Trúc Skill
+### 2. Cài Đặt Thủ Công (Cho người dùng cơ bản)
 
-```
-skills/
-  cv-scorer/
-    SKILL.md                    # Skill chính (quy trình + rubric chấm điểm)
-    references/
-      scoring-rubric.md         # Rubric 5 tiêu chí chi tiết kèm hướng dẫn chấm
-      output-format.md          # Template JSON đầu ra (CV đơn + hàng loạt)
-  system-prompt-creator/
-    SKILL.md                    # Skill chính (quy trình + 12 nguyên tắc)
-    references/
-      principles.md             # Nguyên tắc chi tiết kèm ví dụ
-      model-specific.md         # Mẹo cho Claude / GPT-5 / Gemini
-      templates.md              # 7 template (chatbot, agent, extractor, v.v.)
-  socratic-questor/
-    SKILL.md                    # Skill chính (nhân vật Gadfly + quy trình)
-    references/
-      questioning-framework.md  # Khung 6 loại câu hỏi của Paul & Elder + chiến lược thích ứng
-  fiction-studio/
-    SKILL.md                    # Skill chính (đội 10 agent + quy trình + Phòng Biên Kịch)
-    references/                 # agents/, workflow, craft, genres, qa, party-mode
-    templates/                  # premise, outline, character, world-bible, canon.json, ...
-    checklists/                 # plot-structure, continuity, foreshadowing, sensitivity, ...
-    scripts/
-      continuity_check.py       # Trình kiểm tra nhất quán không phụ thuộc thư viện
-  slidewright/
-    SKILL.md                    # Skill chính (tư duy trình chiếu + quy trình + chọn track)
-    references/
-      design-system.md          # Sàn cỡ chữ, mẫu layout, chuyển động, bảng màu
-      html-track.md             # Deck một file HTML không cần build
-      react-track.md            # Kiến trúc Vite + React (Deck/Slide/slides)
-      export-pdf.md             # Xuất PDF + quy ước speaker notes
-    scripts/
-      new-html-deck.sh          # Scaffold deck HTML không cần build
-      new-react-deck.sh         # Scaffold deck Vite + React (deps mới nhất, không pin)
-      export-deck-pdf.py        # Xuất PDF đủ nội dung (đợi render, bung nội dung ẩn)
-  diataxis-writer/
-    SKILL.md                    # Skill chính (viết, phân loại, tái cấu trúc, review theo Diataxis)
-    README.md                   # README skill tiếng Anh
-    README.vi.md                # README skill tiếng Việt
-    README.zh.md                # README skill tiếng Trung
-    references/
-      diataxis-patterns.md      # Mẫu Diataxis, chẩn đoán và ví dụ
-    scripts/
-      classify-doc.sh           # Phân loại tài liệu theo kiểu Diataxis
-    evals/
-      evals.json                # Bộ ca đánh giá
-```
+Bạn có thể tải các file `.zip` đã đóng gói sẵn cho từng skill và giải nén vào thư mục mong muốn.
+
+1. **Tải về:** Truy cập thư mục `skills/` trong kho lưu trữ này hoặc trang Releases và tải file `.zip` của skill bạn muốn.
+2. **Giải nén & Copy:** Giải nén file `.zip` và copy thư mục skill vào một trong các vị trí sau:
+
+**Cho một dự án cụ thể:**
+Copy thư mục vào `.agents/skills/` hoặc `.claude/skills/` trong thư mục gốc dự án của bạn.
+
+**Cài đặt toàn cục (Dùng cho mọi dự án):**
+* **Mac / Linux:** `~/.agents/skills/` hoặc `~/.claude/skills/`
+* **Windows:** `%USERPROFILE%\.agents\skills\` hoặc `%USERPROFILE%\.claude\skills\` (thường là `C:\Users\<Tên_Của_Bạn>`)
 
 ## Đóng Góp
 

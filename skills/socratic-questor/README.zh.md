@@ -41,3 +41,23 @@ Gadfly 围绕苏格拉底提问框架的 6 个步骤来引导对话：
 ```text
 请扮演 Gadfly 并通过提问来检验我对面向对象编程的理解。
 ```
+
+## 安装
+
+### 1. 使用 CLI（推荐）
+
+```bash
+npx skills add tronghieu/agent-skills --skill socratic-questor
+```
+
+### 2. 手动安装（适合非技术用户）
+
+1. **下载：** 转到 [Releases 页面](https://github.com/tronghieu/agent-skills/releases)（或本仓库的 `skills/` 文件夹）下载 `socratic-questor.zip` 文件。
+2. **解压和复制：** 解压 `socratic-questor.zip` 并将 `socratic-questor` 文件夹复制到以下目录之一：
+
+**针对特定项目：**
+将 `socratic-questor` 文件夹复制到项目根目录下的 `.agents/skills/` 或 `.claude/skills/`。
+
+**全局安装（所有项目可用）：**
+* **Mac / Linux：** `~/.agents/skills/` 或 `~/.claude/skills/`
+* **Windows：** `%USERPROFILE%\.agents\skills\` 或 `%USERPROFILE%\.claude\skills\`（通常为 `C:\Users\<YourUsername>`）

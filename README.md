@@ -125,68 +125,25 @@ npx skills add tronghieu/agent-skills --skill diataxis-writer
 
 ## Installation
 
+### 1. Using CLI (Recommended)
+
 ```bash
-# Using the skills CLI (recommended)
 npx skills add tronghieu/agent-skills
-
-# Or manually for Claude Code
-cp -r skills/cv-scorer ~/.claude/skills/
-cp -r skills/system-prompt-creator ~/.claude/skills/
-cp -r skills/socratic-questor ~/.claude/skills/
-cp -r skills/fiction-studio ~/.claude/skills/
-cp -r skills/slidewright ~/.claude/skills/
-cp -r skills/diataxis-writer ~/.claude/skills/
 ```
 
-## Skill Structure
+### 2. Manual Installation (For Non-Technical Users)
 
-```
-skills/
-  cv-scorer/
-    SKILL.md                    # Core skill (workflow + scoring rubric)
-    references/
-      scoring-rubric.md         # Detailed 5-criterion rubric with scoring guides
-      output-format.md          # JSON output templates (single CV + batch)
-  system-prompt-creator/
-    SKILL.md                    # Core skill (workflow + 12 principles)
-    references/
-      principles.md             # Detailed principles with examples
-      model-specific.md         # Claude / GPT-5 / Gemini tips
-      templates.md              # 7 templates (chatbot, agent, extractor, etc.)
-  socratic-questor/
-    SKILL.md                    # Core skill (Gadfly persona + workflow)
-    references/
-      questioning-framework.md  # Paul & Elder 6-type framework + adaptive strategies
-  fiction-studio/
-    SKILL.md                    # Core skill (team of 10 agents + pipeline + Writers' Room)
-    references/                 # agents/, workflow, craft, genres, qa, party-mode
-    templates/                  # premise, outline, character, world-bible, canon.json, ...
-    checklists/                 # plot-structure, continuity, foreshadowing, sensitivity, ...
-    scripts/
-      continuity_check.py       # Zero-dependency consistency checker (names, attrs, setups)
-  slidewright/
-    SKILL.md                    # Core skill (projection mental model + workflow + track selection)
-    references/
-      design-system.md          # Typography floor, layout recipes, motion, palette
-      html-track.md             # Plain-HTML single-file deck
-      react-track.md            # Vite + React (Deck/Slide/slides) architecture
-      export-pdf.md             # PDF export + speaker-notes convention
-    scripts/
-      new-html-deck.sh          # Scaffold a zero-build HTML deck
-      new-react-deck.sh         # Scaffold a Vite + React deck (latest deps, unpinned)
-      export-deck-pdf.py        # Content-complete PDF export (waits for render, reveals hidden content)
-  diataxis-writer/
-    SKILL.md                    # Core skill (Diataxis writing, classification, restructuring, review)
-    README.md                   # English skill README
-    README.vi.md                # Vietnamese skill README
-    README.zh.md                # Chinese skill README
-    references/
-      diataxis-patterns.md      # Diataxis patterns, diagnostics, and examples
-    scripts/
-      classify-doc.sh           # Classify documentation by Diataxis type
-    evals/
-      evals.json                # Evaluation cases
-```
+You can download the ready-to-use `.zip` files for each skill and extract them to your preferred location.
+
+1. **Download:** Go to the `skills/` folder in this repository or the Releases page and download the `.zip` file for the skill you want.
+2. **Extract & Copy:** Extract the `.zip` file and copy the skill folder into one of the following directories:
+
+**For a Specific Project:**
+Copy the folder to `.agents/skills/` or `.claude/skills/` in your project's root directory.
+
+**Globally (Available for all projects):**
+* **Mac / Linux:** `~/.agents/skills/` or `~/.claude/skills/`
+* **Windows:** `%USERPROFILE%\.agents\skills\` or `%USERPROFILE%\.claude\skills\` (usually `C:\Users\<YourUsername>`)
 
 ## Contributing
 

@@ -39,3 +39,23 @@
 ```text
 优化我现有的 Prompt，使其在 Claude 上运行得更好。
 ```
+
+## 安装
+
+### 1. 使用 CLI（推荐）
+
+```bash
+npx skills add tronghieu/agent-skills --skill system-prompt-creator
+```
+
+### 2. 手动安装（适合非技术用户）
+
+1. **下载：** 转到 [Releases 页面](https://github.com/tronghieu/agent-skills/releases)（或本仓库的 `skills/` 文件夹）下载 `system-prompt-creator.zip` 文件。
+2. **解压和复制：** 解压 `system-prompt-creator.zip` 并将 `system-prompt-creator` 文件夹复制到以下目录之一：
+
+**针对特定项目：**
+将 `system-prompt-creator` 文件夹复制到项目根目录下的 `.agents/skills/` 或 `.claude/skills/`。
+
+**全局安装（所有项目可用）：**
+* **Mac / Linux：** `~/.agents/skills/` 或 `~/.claude/skills/`
+* **Windows：** `%USERPROFILE%\.agents\skills\` 或 `%USERPROFILE%\.claude\skills\`（通常为 `C:\Users\<YourUsername>`）

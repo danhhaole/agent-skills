@@ -43,3 +43,23 @@ Lọc hồ sơ ứng viên này và tìm xem có điểm bất thường nào kh
 ```text
 Đánh giá mức độ phù hợp của ứng viên cho vị trí Software Engineer và xếp hạng họ.
 ```
+
+## Cài Đặt
+
+### 1. Dùng CLI (Khuyến nghị)
+
+```bash
+npx skills add tronghieu/agent-skills --skill cv-scorer
+```
+
+### 2. Cài Đặt Thủ Công (Cho người dùng cơ bản)
+
+1. **Tải về:** Truy cập trang [Releases](https://github.com/tronghieu/agent-skills/releases) (hoặc thư mục `skills/` trong kho lưu trữ) và tải file `cv-scorer.zip`.
+2. **Giải nén & Copy:** Giải nén file `cv-scorer.zip` và copy thư mục `cv-scorer` vào một trong các vị trí sau:
+
+**Cho một dự án cụ thể:**
+Copy thư mục `cv-scorer` vào `.agents/skills/` hoặc `.claude/skills/` trong thư mục gốc dự án của bạn.
+
+**Cài đặt toàn cục (Dùng cho mọi dự án):**
+* **Mac / Linux:** `~/.agents/skills/` hoặc `~/.claude/skills/`
+* **Windows:** `%USERPROFILE%\.agents\skills\` hoặc `%USERPROFILE%\.claude\skills\` (thường là `C:\Users\<Tên_Của_Bạn>`)

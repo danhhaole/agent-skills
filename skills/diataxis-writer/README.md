@@ -94,3 +94,23 @@ bash ./scripts/classify-doc.sh path/to/doc.md
 
 The script is only a quick diagnostic aid. The final decision should still be
 based on the reader job and documentation context.
+
+## Installation
+
+### 1. Using CLI (Recommended)
+
+```bash
+npx skills add tronghieu/agent-skills --skill diataxis-writer
+```
+
+### 2. Manual Installation (For Non-Technical Users)
+
+1. **Download:** Go to the [Releases page](https://github.com/tronghieu/agent-skills/releases) (or the `skills/` folder in the repository) and download `diataxis-writer.zip`.
+2. **Extract & Copy:** Extract `diataxis-writer.zip` and copy the `diataxis-writer` folder into one of the following directories:
+
+**For a Specific Project:**
+Copy the `diataxis-writer` folder to `.agents/skills/` or `.claude/skills/` in your project's root directory.
+
+**Globally (Available for all projects):**
+* **Mac / Linux:** `~/.agents/skills/` or `~/.claude/skills/`
+* **Windows:** `%USERPROFILE%\.agents\skills\` or `%USERPROFILE%\.claude\skills\` (usually `C:\Users\<YourUsername>`)

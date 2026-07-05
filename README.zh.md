@@ -125,68 +125,25 @@ npx skills add tronghieu/agent-skills --skill diataxis-writer
 
 ## 安装
 
+### 1. 使用 CLI（推荐）
+
 ```bash
-# 使用 skills CLI（推荐）
 npx skills add tronghieu/agent-skills
-
-# 或手动安装到 Claude Code
-cp -r skills/cv-scorer ~/.claude/skills/
-cp -r skills/system-prompt-creator ~/.claude/skills/
-cp -r skills/socratic-questor ~/.claude/skills/
-cp -r skills/fiction-studio ~/.claude/skills/
-cp -r skills/slidewright ~/.claude/skills/
-cp -r skills/diataxis-writer ~/.claude/skills/
 ```
 
-## 技能结构
+### 2. 手动安装（适合非技术用户）
 
-```
-skills/
-  cv-scorer/
-    SKILL.md                    # 核心技能（工作流 + 评分标准）
-    references/
-      scoring-rubric.md         # 5 项标准详细评分指南
-      output-format.md          # JSON 输出模板（单份简历 + 批量）
-  system-prompt-creator/
-    SKILL.md                    # 核心技能（工作流 + 12 项原则）
-    references/
-      principles.md             # 含示例的详细原则说明
-      model-specific.md         # Claude / GPT-5 / Gemini 使用技巧
-      templates.md              # 7 个模板（聊天机器人、智能体、提取器等）
-  socratic-questor/
-    SKILL.md                    # 核心技能（牛虻角色 + 工作流）
-    references/
-      questioning-framework.md  # Paul & Elder 6 类框架 + 自适应策略
-  fiction-studio/
-    SKILL.md                    # 核心技能（10 人智能体团队 + 流程 + 编剧室）
-    references/                 # agents/、workflow、craft、genres、qa、party-mode
-    templates/                  # premise、outline、character、world-bible、canon.json 等
-    checklists/                 # plot-structure、continuity、foreshadowing、sensitivity 等
-    scripts/
-      continuity_check.py       # 零依赖一致性检查器
-  slidewright/
-    SKILL.md                    # 核心技能（投影思维模型 + 工作流 + 路线选择）
-    references/
-      design-system.md          # 字号下限、版式配方、动效、配色
-      html-track.md             # 无需构建的单文件 HTML deck
-      react-track.md            # Vite + React（Deck/Slide/slides）架构
-      export-pdf.md             # 导出 PDF + 演讲者备注约定
-    scripts/
-      new-html-deck.sh          # 生成无需构建的 HTML deck
-      new-react-deck.sh         # 生成 Vite + React deck（最新依赖，不锁版本）
-      export-deck-pdf.py        # 导出内容完整的 PDF（等待渲染、展开隐藏内容）
-  diataxis-writer/
-    SKILL.md                    # 核心技能（Diataxis 写作、分类、重构、审查）
-    README.md                   # 英文技能 README
-    README.vi.md                # 越南语技能 README
-    README.zh.md                # 中文技能 README
-    references/
-      diataxis-patterns.md      # Diataxis 模式、诊断和示例
-    scripts/
-      classify-doc.sh           # 按 Diataxis 类型分类文档
-    evals/
-      evals.json                # 评估用例
-```
+您可以下载每个技能打包好的 `.zip` 文件，并将其解压到您喜欢的位置。
+
+1. **下载：** 转到此仓库的 `skills/` 文件夹或 Releases 页面，下载所需技能的 `.zip` 文件。
+2. **解压和复制：** 解压 `.zip` 文件，并将技能文件夹复制到以下目录之一：
+
+**针对特定项目：**
+将文件夹复制到项目根目录下的 `.agents/skills/` 或 `.claude/skills/`。
+
+**全局安装（所有项目可用）：**
+* **Mac / Linux：** `~/.agents/skills/` 或 `~/.claude/skills/`
+* **Windows：** `%USERPROFILE%\.agents\skills\` 或 `%USERPROFILE%\.claude\skills\`（通常为 `C:\Users\<YourUsername>`）
 
 ## 贡献
 

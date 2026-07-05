@@ -68,3 +68,23 @@ bash ./scripts/classify-doc.sh path/to/doc.md
 ```
 
 这个脚本只适合快速诊断。最终判断仍应基于 reader job 和文档上下文。
+
+## 安装
+
+### 1. 使用 CLI（推荐）
+
+```bash
+npx skills add tronghieu/agent-skills --skill diataxis-writer
+```
+
+### 2. 手动安装（适合非技术用户）
+
+1. **下载：** 转到 [Releases 页面](https://github.com/tronghieu/agent-skills/releases)（或本仓库的 `skills/` 文件夹）下载 `diataxis-writer.zip` 文件。
+2. **解压和复制：** 解压 `diataxis-writer.zip` 并将 `diataxis-writer` 文件夹复制到以下目录之一：
+
+**针对特定项目：**
+将 `diataxis-writer` 文件夹复制到项目根目录下的 `.agents/skills/` 或 `.claude/skills/`。
+
+**全局安装（所有项目可用）：**
+* **Mac / Linux：** `~/.agents/skills/` 或 `~/.claude/skills/`
+* **Windows：** `%USERPROFILE%\.agents\skills\` 或 `%USERPROFILE%\.claude\skills\`（通常为 `C:\Users\<YourUsername>`）

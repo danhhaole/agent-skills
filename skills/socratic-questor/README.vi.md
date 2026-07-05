@@ -41,3 +41,23 @@ Giúp tôi hiểu sâu về cách hoạt động của thị trường chứng k
 ```text
 Hãy đóng vai Gadfly và đặt câu hỏi để kiểm tra hiểu biết của tôi về lập trình hướng đối tượng.
 ```
+
+## Cài Đặt
+
+### 1. Dùng CLI (Khuyến nghị)
+
+```bash
+npx skills add tronghieu/agent-skills --skill socratic-questor
+```
+
+### 2. Cài Đặt Thủ Công (Cho người dùng cơ bản)
+
+1. **Tải về:** Truy cập trang [Releases](https://github.com/tronghieu/agent-skills/releases) (hoặc thư mục `skills/` trong kho lưu trữ) và tải file `socratic-questor.zip`.
+2. **Giải nén & Copy:** Giải nén file `socratic-questor.zip` và copy thư mục `socratic-questor` vào một trong các vị trí sau:
+
+**Cho một dự án cụ thể:**
+Copy thư mục `socratic-questor` vào `.agents/skills/` hoặc `.claude/skills/` trong thư mục gốc dự án của bạn.
+
+**Cài đặt toàn cục (Dùng cho mọi dự án):**
+* **Mac / Linux:** `~/.agents/skills/` hoặc `~/.claude/skills/`
+* **Windows:** `%USERPROFILE%\.agents\skills\` hoặc `%USERPROFILE%\.claude\skills\` (thường là `C:\Users\<Tên_Của_Bạn>`)

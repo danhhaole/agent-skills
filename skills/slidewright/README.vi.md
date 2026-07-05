@@ -39,3 +39,23 @@ Khởi tạo một dự án slide mới về chủ đề AI Agent dùng HTML tra
 ```text
 Soạn thảo nội dung slide và ghi chú thuyết trình cho bài gọi vốn 10 phút.
 ```
+
+## Cài Đặt
+
+### 1. Dùng CLI (Khuyến nghị)
+
+```bash
+npx skills add tronghieu/agent-skills --skill slidewright
+```
+
+### 2. Cài Đặt Thủ Công (Cho người dùng cơ bản)
+
+1. **Tải về:** Truy cập trang [Releases](https://github.com/tronghieu/agent-skills/releases) (hoặc thư mục `skills/` trong kho lưu trữ) và tải file `slidewright.zip`.
+2. **Giải nén & Copy:** Giải nén file `slidewright.zip` và copy thư mục `slidewright` vào một trong các vị trí sau:
+
+**Cho một dự án cụ thể:**
+Copy thư mục `slidewright` vào `.agents/skills/` hoặc `.claude/skills/` trong thư mục gốc dự án của bạn.
+
+**Cài đặt toàn cục (Dùng cho mọi dự án):**
+* **Mac / Linux:** `~/.agents/skills/` hoặc `~/.claude/skills/`
+* **Windows:** `%USERPROFILE%\.agents\skills\` hoặc `%USERPROFILE%\.claude\skills\` (thường là `C:\Users\<Tên_Của_Bạn>`)

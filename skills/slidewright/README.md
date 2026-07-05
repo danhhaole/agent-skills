@@ -39,3 +39,23 @@ Scaffold a new presentation about AI agents using the HTML track.
 ```text
 Draft the slides and speaker notes for a 10-minute project pitch.
 ```
+
+## Installation
+
+### 1. Using CLI (Recommended)
+
+```bash
+npx skills add tronghieu/agent-skills --skill slidewright
+```
+
+### 2. Manual Installation (For Non-Technical Users)
+
+1. **Download:** Go to the [Releases page](https://github.com/tronghieu/agent-skills/releases) (or the `skills/` folder in the repository) and download `slidewright.zip`.
+2. **Extract & Copy:** Extract `slidewright.zip` and copy the `slidewright` folder into one of the following directories:
+
+**For a Specific Project:**
+Copy the `slidewright` folder to `.agents/skills/` or `.claude/skills/` in your project's root directory.
+
+**Globally (Available for all projects):**
+* **Mac / Linux:** `~/.agents/skills/` or `~/.claude/skills/`
+* **Windows:** `%USERPROFILE%\.agents\skills\` or `%USERPROFILE%\.claude\skills\` (usually `C:\Users\<YourUsername>`)
