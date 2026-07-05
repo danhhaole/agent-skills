@@ -6,6 +6,16 @@
 
 ## 可用技能
 
+| 技能 | 功能简介 |
+|------|----------|
+| [cv-scorer](#cv-scorer) | 根据职位描述（JD）对候选人简历进行百分制评分 |
+| [deep-reader](#deep-reader) | 使用 Adler 的方法深度阅读长篇书籍和论文，以按页码锚定的笔记作为外部记忆 |
+| [diataxis-writer](#diataxis-writer) | 使用 Diataxis 框架编写、重构、分类和审查文档 |
+| [fiction-studio](#fiction-studio) | 一个完整的小说创作工作室，由一支被命名的专家智能体团队运行 |
+| [slidewright](#slidewright) | 构建交互式演示网站 —— 投影到房间的幻灯片 |
+| [socratic-questor](#socratic-questor) | 苏格拉底式问答伙伴（牛虻），通过对话实现深度学习 |
+| [system-prompt-creator](#system-prompt-creator) | 为任意 LLM 创建高质量、模型感知的系统提示词 |
+
 ### cv-scorer
 
 根据职位描述（JD）对候选人简历进行百分制评分。
@@ -25,44 +35,42 @@
 npx skills add tronghieu/agent-skills --skill cv-scorer
 ```
 
-### system-prompt-creator
+### deep-reader
 
-为任意 LLM（Claude、GPT、Gemini、开源模型）创建高质量、模型感知的系统提示词。
+使用 Adler 的检视/分析/主题阅读法、SQ3R 的 Recite 步骤，以及 Keshav 针对论文的三遍阅读法，深度阅读长篇书籍和论文，并以按页码锚定的笔记作为外部记忆。
 
-**技能 README：** [system-prompt-creator](./skills/system-prompt-creator/README.zh.md)
+**技能 README：** [deep-reader](./skills/deep-reader/README.zh.md)
 
 **功能：**
-- 引导完成结构化五步工作流：访谈、分析、结构化、起草、审查
-- 应用源自 Anthropic、OpenAI 和 Google 官方提示工程指南的 12 条通用原则
-- 生成模型专属优化（Claude XML 标签、GPT-5 详细度参数、Gemini 温度设置）
-- 包含领域模式：操作手册、原始数据保留、置信度评分
-- 提供 7 个可直接定制的常见场景模板
+- 按遍数分层阅读——先把握结构，再逐章阅读内容——而不是把整本书塞进一个上下文窗口
+- 两种模式：**overview**（检视阅读 + 目标导向的摘要）和 **study**（完整流水线：逐章撰写分析笔记并配合 Recite 核实，再生成层级式综合总结）
+- 把一切都外化写入按页码锚定的笔记工作区，让之后的会话能通过查笔记而不是重读全书来回答后续问题
+- 机械化核对每一条引文与所引页码是否一致，揪出编造的引文和错误的页码引用
 
-**触发短语：** "创建系统提示词"、"编写系统指令"、"提示工程"、"构建聊天机器人提示词"、"设计智能体提示词"
+**触发短语：** "帮我读一下这本书"、"研究一下这份 PDF"、"总结这本教材"、"分析这篇论文"、"深度阅读这篇学位论文"、"tóm tắt sách"、"phân tích luận án"
 
 **安装：**
 ```bash
-npx skills add tronghieu/agent-skills --skill system-prompt-creator
+npx skills add tronghieu/agent-skills --skill deep-reader
 ```
 
-### socratic-questor
+### diataxis-writer
 
-苏格拉底式问答伙伴（牛虻），通过对话实现深度学习。
+使用 Diataxis 框架编写、重构、分类和审查文档。
 
-**技能 README：** [socratic-questor](./skills/socratic-questor/README.zh.md)
+**技能 README：** [diataxis-writer](./skills/diataxis-writer/README.zh.md)
 
 **功能：**
-- 通过提问而非讲解来教授任意主题 — 学习者在对话中自己发现理解
-- 遵循 Paul & Elder 6 种苏格拉底提问框架：澄清、假设、证据、视角、含义、元问题
-- 根据学习者的回答质量自动检测并适应其水平（初学者、中级、高级）
-- 遇到困难时降级支持 — 更简单的子问题和具体类比，绝不直接给出答案
-- 自动匹配学习者的语言
+- 将文档分类为教程、操作指南、参考资料和解释说明
+- 编写和重构 docs、知识库、入职/流程文档，以及产品/API 文档
+- 按 Diataxis 匹配度、读者意图、任务流程和缺失上下文审查文档
+- 帮助把混杂或混乱的文档整理成更清晰的学习、任务、信息或理解材料
 
-**触发短语：** "教我关于..."、"帮我理解..."、"问我关于..."、"测验我"、"苏格拉底方法"、"Gadfly"
+**触发短语：** "使用 Diataxis"、"给这篇文档分类"、"重构文档"、"审查这些 docs"、"写一篇操作指南"、"创建 API 参考文档"、"改进入职文档"、"整理知识库"
 
 **安装：**
 ```bash
-npx skills add tronghieu/agent-skills --skill socratic-questor
+npx skills add tronghieu/agent-skills --skill diataxis-writer
 ```
 
 ### fiction-studio
@@ -104,42 +112,44 @@ npx skills add tronghieu/agent-skills --skill fiction-studio
 npx skills add tronghieu/agent-skills --skill slidewright
 ```
 
-### diataxis-writer
+### socratic-questor
 
-使用 Diataxis 框架编写、重构、分类和审查文档。
+苏格拉底式问答伙伴（牛虻），通过对话实现深度学习。
 
-**技能 README：** [diataxis-writer](./skills/diataxis-writer/README.zh.md)
+**技能 README：** [socratic-questor](./skills/socratic-questor/README.zh.md)
 
 **功能：**
-- 将文档分类为教程、操作指南、参考资料和解释说明
-- 编写和重构 docs、知识库、入职/流程文档，以及产品/API 文档
-- 按 Diataxis 匹配度、读者意图、任务流程和缺失上下文审查文档
-- 帮助把混杂或混乱的文档整理成更清晰的学习、任务、信息或理解材料
+- 通过提问而非讲解来教授任意主题 — 学习者在对话中自己发现理解
+- 遵循 Paul & Elder 6 种苏格拉底提问框架：澄清、假设、证据、视角、含义、元问题
+- 根据学习者的回答质量自动检测并适应其水平（初学者、中级、高级）
+- 遇到困难时降级支持 — 更简单的子问题和具体类比，绝不直接给出答案
+- 自动匹配学习者的语言
 
-**触发短语：** "使用 Diataxis"、"给这篇文档分类"、"重构文档"、"审查这些 docs"、"写一篇操作指南"、"创建 API 参考文档"、"改进入职文档"、"整理知识库"
+**触发短语：** "教我关于..."、"帮我理解..."、"问我关于..."、"测验我"、"苏格拉底方法"、"Gadfly"
 
 **安装：**
 ```bash
-npx skills add tronghieu/agent-skills --skill diataxis-writer
+npx skills add tronghieu/agent-skills --skill socratic-questor
 ```
 
-### deep-reader
+### system-prompt-creator
 
-使用 Adler 的检视/分析/主题阅读法、SQ3R 的 Recite 步骤，以及 Keshav 针对论文的三遍阅读法，深度阅读长篇书籍和论文，并以按页码锚定的笔记作为外部记忆。
+为任意 LLM（Claude、GPT、Gemini、开源模型）创建高质量、模型感知的系统提示词。
 
-**技能 README：** [deep-reader](./skills/deep-reader/README.zh.md)
+**技能 README：** [system-prompt-creator](./skills/system-prompt-creator/README.zh.md)
 
 **功能：**
-- 按遍数分层阅读——先把握结构，再逐章阅读内容——而不是把整本书塞进一个上下文窗口
-- 两种模式：**overview**（检视阅读 + 目标导向的摘要）和 **study**（完整流水线：逐章撰写分析笔记并配合 Recite 核实，再生成层级式综合总结）
-- 把一切都外化写入按页码锚定的笔记工作区，让之后的会话能通过查笔记而不是重读全书来回答后续问题
-- 机械化核对每一条引文与所引页码是否一致，揪出编造的引文和错误的页码引用
+- 引导完成结构化五步工作流：访谈、分析、结构化、起草、审查
+- 应用源自 Anthropic、OpenAI 和 Google 官方提示工程指南的 12 条通用原则
+- 生成模型专属优化（Claude XML 标签、GPT-5 详细度参数、Gemini 温度设置）
+- 包含领域模式：操作手册、原始数据保留、置信度评分
+- 提供 7 个可直接定制的常见场景模板
 
-**触发短语：** "帮我读一下这本书"、"研究一下这份 PDF"、"总结这本教材"、"分析这篇论文"、"深度阅读这篇学位论文"、"tóm tắt sách"、"phân tích luận án"
+**触发短语：** "创建系统提示词"、"编写系统指令"、"提示工程"、"构建聊天机器人提示词"、"设计智能体提示词"
 
 **安装：**
 ```bash
-npx skills add tronghieu/agent-skills --skill deep-reader
+npx skills add tronghieu/agent-skills --skill system-prompt-creator
 ```
 
 ## 安装

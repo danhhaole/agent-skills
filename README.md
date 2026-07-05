@@ -6,6 +6,16 @@ A collection of skills for AI coding agents. Compatible with [Claude Code](https
 
 ## Available Skills
 
+| Skill | What it does |
+|-------|---------------|
+| [cv-scorer](#cv-scorer) | Score candidate CVs on a 100-point scale against a Job Description |
+| [deep-reader](#deep-reader) | Deep-read long books and papers using Adler's method, with page-anchored notes as external memory |
+| [diataxis-writer](#diataxis-writer) | Write, restructure, classify, and review documentation using the Diataxis framework |
+| [fiction-studio](#fiction-studio) | A complete prose-fiction writing studio run by a team of named specialist agents |
+| [slidewright](#slidewright) | Build interactive presentation websites — slide decks projected to a room |
+| [socratic-questor](#socratic-questor) | Socratic questioning partner (Gadfly) for deep learning through dialogue |
+| [system-prompt-creator](#system-prompt-creator) | Create high-quality, model-aware system prompts for any LLM |
+
 ### cv-scorer
 
 Score candidate CVs on a 100-point scale against a Job Description.
@@ -25,44 +35,42 @@ Score candidate CVs on a 100-point scale against a Job Description.
 npx skills add tronghieu/agent-skills --skill cv-scorer
 ```
 
-### system-prompt-creator
+### deep-reader
 
-Create high-quality, model-aware system prompts for any LLM (Claude, GPT, Gemini, open-source).
+Deep-read long books and papers using Adler's inspectional/analytical/syntopical method, SQ3R's Recite step, and Keshav's three-pass method for papers, with page-anchored notes as external memory.
 
-**Skill README:** [system-prompt-creator](./skills/system-prompt-creator/README.md)
+**Skill README:** [deep-reader](./skills/deep-reader/README.md)
 
 **What it does:**
-- Walks you through a structured 5-step workflow: Interview, Analyze, Structure, Draft, Review
-- Applies 12 universal principles derived from the official prompting guides of Anthropic, OpenAI, and Google
-- Produces model-specific optimizations (Claude XML tags, GPT-5 verbosity params, Gemini temperature settings)
-- Includes domain patterns: operational playbooks, raw data preservation, confidence scoring
-- Provides 7 ready-to-adapt templates for common use cases
+- Reads in passes — structure first, then chapter by chapter — instead of loading the whole book into one context window
+- Two modes: **overview** (inspectional pass + goal-directed summary) and **study** (full pipeline: analytical notes per chapter with Recite verification, then a hierarchical synthesis)
+- Externalizes everything into a page-anchored notes workspace, so a later session answers follow-up questions by searching notes instead of re-reading the book
+- Mechanically verifies every quote against its cited page to catch fabricated quotes and wrong page citations
 
-**Trigger phrases:** "create a system prompt", "write system instructions", "prompt engineering", "build a chatbot prompt", "design an agent prompt"
+**Trigger phrases:** "read this book for me", "study this PDF", "summarize this textbook", "analyze this paper", "deep-read this thesis", "đọc sách", "tóm tắt sách", "phân tích luận án"
 
 **Install:**
 ```bash
-npx skills add tronghieu/agent-skills --skill system-prompt-creator
+npx skills add tronghieu/agent-skills --skill deep-reader
 ```
 
-### socratic-questor
+### diataxis-writer
 
-Socratic questioning partner (Gadfly) for deep learning through dialogue.
+Write, restructure, classify, and review documentation using the Diataxis framework.
 
-**Skill README:** [socratic-questor](./skills/socratic-questor/README.md)
+**Skill README:** [diataxis-writer](./skills/diataxis-writer/README.md)
 
 **What it does:**
-- Teaches any topic by asking questions, never by explaining — the learner discovers understanding through dialogue
-- Follows the Paul & Elder 6-type Socratic questioning framework: Clarification, Assumptions, Evidence, Perspectives, Implications, Meta-questions
-- Adapts difficulty based on learner level (novice, intermediate, advanced) detected from response quality
-- Scaffolds down when learners are stuck — simpler sub-questions and concrete analogies, never direct answers
-- Matches the learner's language automatically
+- Classifies docs into tutorials, how-to guides, references, and explanations
+- Writes and restructures docs, knowledge bases, onboarding/process docs, and product/API docs
+- Reviews documentation for Diataxis fit, audience intent, task flow, and missing context
+- Helps turn mixed or messy docs into clearer learning, task, information, or understanding material
 
-**Trigger phrases:** "teach me about...", "help me understand...", "ask me questions about...", "quiz me", "Socratic method", "Gadfly"
+**Trigger phrases:** "use Diataxis", "classify this doc", "restructure documentation", "review these docs", "write a how-to guide", "create API reference docs", "improve onboarding docs", "organize a knowledge base"
 
 **Install:**
 ```bash
-npx skills add tronghieu/agent-skills --skill socratic-questor
+npx skills add tronghieu/agent-skills --skill diataxis-writer
 ```
 
 ### fiction-studio
@@ -104,42 +112,44 @@ Build interactive presentation websites — slide decks projected to a room and 
 npx skills add tronghieu/agent-skills --skill slidewright
 ```
 
-### diataxis-writer
+### socratic-questor
 
-Write, restructure, classify, and review documentation using the Diataxis framework.
+Socratic questioning partner (Gadfly) for deep learning through dialogue.
 
-**Skill README:** [diataxis-writer](./skills/diataxis-writer/README.md)
+**Skill README:** [socratic-questor](./skills/socratic-questor/README.md)
 
 **What it does:**
-- Classifies docs into tutorials, how-to guides, references, and explanations
-- Writes and restructures docs, knowledge bases, onboarding/process docs, and product/API docs
-- Reviews documentation for Diataxis fit, audience intent, task flow, and missing context
-- Helps turn mixed or messy docs into clearer learning, task, information, or understanding material
+- Teaches any topic by asking questions, never by explaining — the learner discovers understanding through dialogue
+- Follows the Paul & Elder 6-type Socratic questioning framework: Clarification, Assumptions, Evidence, Perspectives, Implications, Meta-questions
+- Adapts difficulty based on learner level (novice, intermediate, advanced) detected from response quality
+- Scaffolds down when learners are stuck — simpler sub-questions and concrete analogies, never direct answers
+- Matches the learner's language automatically
 
-**Trigger phrases:** "use Diataxis", "classify this doc", "restructure documentation", "review these docs", "write a how-to guide", "create API reference docs", "improve onboarding docs", "organize a knowledge base"
+**Trigger phrases:** "teach me about...", "help me understand...", "ask me questions about...", "quiz me", "Socratic method", "Gadfly"
 
 **Install:**
 ```bash
-npx skills add tronghieu/agent-skills --skill diataxis-writer
+npx skills add tronghieu/agent-skills --skill socratic-questor
 ```
 
-### deep-reader
+### system-prompt-creator
 
-Deep-read long books and papers using Adler's inspectional/analytical/syntopical method, SQ3R's Recite step, and Keshav's three-pass method for papers, with page-anchored notes as external memory.
+Create high-quality, model-aware system prompts for any LLM (Claude, GPT, Gemini, open-source).
 
-**Skill README:** [deep-reader](./skills/deep-reader/README.md)
+**Skill README:** [system-prompt-creator](./skills/system-prompt-creator/README.md)
 
 **What it does:**
-- Reads in passes — structure first, then chapter by chapter — instead of loading the whole book into one context window
-- Two modes: **overview** (inspectional pass + goal-directed summary) and **study** (full pipeline: analytical notes per chapter with Recite verification, then a hierarchical synthesis)
-- Externalizes everything into a page-anchored notes workspace, so a later session answers follow-up questions by searching notes instead of re-reading the book
-- Mechanically verifies every quote against its cited page to catch fabricated quotes and wrong page citations
+- Walks you through a structured 5-step workflow: Interview, Analyze, Structure, Draft, Review
+- Applies 12 universal principles derived from the official prompting guides of Anthropic, OpenAI, and Google
+- Produces model-specific optimizations (Claude XML tags, GPT-5 verbosity params, Gemini temperature settings)
+- Includes domain patterns: operational playbooks, raw data preservation, confidence scoring
+- Provides 7 ready-to-adapt templates for common use cases
 
-**Trigger phrases:** "read this book for me", "study this PDF", "summarize this textbook", "analyze this paper", "deep-read this thesis", "đọc sách", "tóm tắt sách", "phân tích luận án"
+**Trigger phrases:** "create a system prompt", "write system instructions", "prompt engineering", "build a chatbot prompt", "design an agent prompt"
 
 **Install:**
 ```bash
-npx skills add tronghieu/agent-skills --skill deep-reader
+npx skills add tronghieu/agent-skills --skill system-prompt-creator
 ```
 
 ## Installation
