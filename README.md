@@ -123,6 +123,25 @@ Write, restructure, classify, and review documentation using the Diataxis framew
 npx skills add tronghieu/agent-skills --skill diataxis-writer
 ```
 
+### deep-reader
+
+Deep-read long books and papers using Adler's inspectional/analytical/syntopical method, SQ3R's Recite step, and Keshav's three-pass method for papers, with page-anchored notes as external memory.
+
+**Skill README:** [deep-reader](./skills/deep-reader/README.md)
+
+**What it does:**
+- Reads in passes — structure first, then chapter by chapter — instead of loading the whole book into one context window
+- Two modes: **overview** (inspectional pass + goal-directed summary) and **study** (full pipeline: analytical notes per chapter with Recite verification, then a hierarchical synthesis)
+- Externalizes everything into a page-anchored notes workspace, so a later session answers follow-up questions by searching notes instead of re-reading the book
+- Mechanically verifies every quote against its cited page to catch fabricated quotes and wrong page citations
+
+**Trigger phrases:** "read this book for me", "study this PDF", "summarize this textbook", "analyze this paper", "deep-read this thesis", "đọc sách", "tóm tắt sách", "phân tích luận án"
+
+**Install:**
+```bash
+npx skills add tronghieu/agent-skills --skill deep-reader
+```
+
 ## Installation
 
 ### 1. Using CLI (Recommended)

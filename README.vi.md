@@ -123,6 +123,25 @@ Viết, tái cấu trúc, phân loại và review tài liệu bằng khung Diata
 npx skills add tronghieu/agent-skills --skill diataxis-writer
 ```
 
+### deep-reader
+
+Đọc sâu sách và bài báo dài bằng phương pháp inspectional/analytical/syntopical của Adler, bước Recite của SQ3R, và phương pháp ba lượt đọc (three-pass) của Keshav cho bài báo, với ghi chú neo theo số trang làm bộ nhớ ngoài.
+
+**README của skill:** [deep-reader](./skills/deep-reader/README.vi.md)
+
+**Chức năng:**
+- Đọc theo từng lượt — trước tiên nắm cấu trúc, sau đó đọc từng chương — thay vì nạp cả cuốn sách vào một context window
+- Hai chế độ: **overview** (lượt đọc kiểm tra + tóm tắt bám sát mục đích đọc) và **study** (pipeline đầy đủ: ghi chú phân tích theo từng chương kèm xác minh Recite, rồi tổng hợp phân cấp)
+- Ghi mọi thứ ra ngoài vào một workspace ghi chú neo theo số trang, để phiên sau có thể trả lời câu hỏi tiếp theo bằng cách tìm trong ghi chú thay vì đọc lại cuốn sách
+- Xác minh bằng máy mọi trích dẫn so với số trang được ghi, để bắt trích dẫn bịa đặt và trích dẫn sai trang
+
+**Câu kích hoạt:** "đọc cuốn sách này giúp tôi", "nghiên cứu file PDF này", "tóm tắt cuốn giáo trình này", "phân tích bài paper này", "đọc kỹ luận án này", "tóm tắt sách", "phân tích luận án"
+
+**Cài đặt:**
+```bash
+npx skills add tronghieu/agent-skills --skill deep-reader
+```
+
 ## Cài Đặt
 
 ### 1. Dùng CLI (Khuyến nghị)

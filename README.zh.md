@@ -123,6 +123,25 @@ npx skills add tronghieu/agent-skills --skill slidewright
 npx skills add tronghieu/agent-skills --skill diataxis-writer
 ```
 
+### deep-reader
+
+使用 Adler 的检视/分析/主题阅读法、SQ3R 的 Recite 步骤，以及 Keshav 针对论文的三遍阅读法，深度阅读长篇书籍和论文，并以按页码锚定的笔记作为外部记忆。
+
+**技能 README：** [deep-reader](./skills/deep-reader/README.zh.md)
+
+**功能：**
+- 按遍数分层阅读——先把握结构，再逐章阅读内容——而不是把整本书塞进一个上下文窗口
+- 两种模式：**overview**（检视阅读 + 目标导向的摘要）和 **study**（完整流水线：逐章撰写分析笔记并配合 Recite 核实，再生成层级式综合总结）
+- 把一切都外化写入按页码锚定的笔记工作区，让之后的会话能通过查笔记而不是重读全书来回答后续问题
+- 机械化核对每一条引文与所引页码是否一致，揪出编造的引文和错误的页码引用
+
+**触发短语：** "帮我读一下这本书"、"研究一下这份 PDF"、"总结这本教材"、"分析这篇论文"、"深度阅读这篇学位论文"、"tóm tắt sách"、"phân tích luận án"
+
+**安装：**
+```bash
+npx skills add tronghieu/agent-skills --skill deep-reader
+```
+
 ## 安装
 
 ### 1. 使用 CLI（推荐）
