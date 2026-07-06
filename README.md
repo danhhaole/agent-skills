@@ -14,6 +14,7 @@ A collection of skills for AI coding agents. Compatible with [Claude Code](https
 | [fiction-studio](#fiction-studio) | A complete prose-fiction writing studio run by a team of named specialist agents |
 | [slidewright](#slidewright) | Build interactive presentation websites — slide decks projected to a room |
 | [socratic-questor](#socratic-questor) | Socratic questioning partner (Gadfly) for deep learning through dialogue |
+| [strategy-board](#strategy-board) | A C-level strategy advisory board run by named specialist agents — from raw question to defended recommendation |
 | [system-prompt-creator](#system-prompt-creator) | Create high-quality, model-aware system prompts for any LLM |
 
 ### cv-scorer
@@ -130,6 +131,25 @@ Socratic questioning partner (Gadfly) for deep learning through dialogue.
 **Install:**
 ```bash
 npx skills add tronghieu/agent-skills --skill socratic-questor
+```
+
+### strategy-board
+
+A C-level strategy advisory board, run as a team of named specialist agents, that takes an executive from a raw strategic question to a defended, board-ready recommendation.
+
+**Skill README:** [strategy-board](./skills/strategy-board/README.md)
+
+**What it does:**
+- Runs a team of 8 named specialists led by **Drucker** (managing partner): Porter (markets & competition), Christensen (innovation & disruption), Graham (finance & value), Grove (execution & organization), Wack (scenarios & uncertainty), Taleb (risk & red team), Minto (synthesis & communication)
+- Drives a gated engagement pipeline — brief → fact base → analysis → options → stress-test → recommendation → roadmap — with executive gates confirming the question, the direction, and the final recommendation
+- **The Boardroom (party mode):** convenes 3-4 relevant members to debate a sharp question, independent takes first via parallel subagents (to kill groupthink), then cross-talk, with minutes kept
+- Hard rules: no invented numbers (every figure traces to a sourced fact base or is labelled an assumption), three genuine options before any recommendation, a mandatory pre-mortem before it ships, and "strategy is choice" — every recommendation states what to stop doing
+
+**Trigger phrases:** "should we invest in / build / buy / enter…", "develop a strategy", "evaluate this opportunity", "stress-test this plan", "run a pre-mortem", "convene the board"
+
+**Install:**
+```bash
+npx skills add tronghieu/agent-skills --skill strategy-board
 ```
 
 ### system-prompt-creator

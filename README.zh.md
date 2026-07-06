@@ -14,6 +14,7 @@
 | [fiction-studio](#fiction-studio) | 一个完整的小说创作工作室，由一支被命名的专家智能体团队运行 |
 | [slidewright](#slidewright) | 构建交互式演示网站 —— 投影到房间的幻灯片 |
 | [socratic-questor](#socratic-questor) | 苏格拉底式问答伙伴（牛虻），通过对话实现深度学习 |
+| [strategy-board](#strategy-board) | 由被命名的专家智能体运行的 C 级战略顾问委员会 —— 从原始问题到经过答辩的建议方案 |
 | [system-prompt-creator](#system-prompt-creator) | 为任意 LLM 创建高质量、模型感知的系统提示词 |
 
 ### cv-scorer
@@ -130,6 +131,25 @@ npx skills add tronghieu/agent-skills --skill slidewright
 **安装：**
 ```bash
 npx skills add tronghieu/agent-skills --skill socratic-questor
+```
+
+### strategy-board
+
+一个 C 级战略顾问委员会，以一支被命名的专家智能体团队的形式运行，带领高管从一个原始的战略问题走到一份经得起答辩、可提交董事会的建议方案。
+
+**技能 README：** [strategy-board](./skills/strategy-board/README.zh.md)
+
+**功能：**
+- 运行一支由 8 位被命名的专家组成的团队，由 **Drucker**（管理合伙人）领导：Porter（市场与竞争）、Christensen（创新与颠覆）、Graham（财务与价值）、Grove（执行与组织）、Wack（情景与不确定性）、Taleb（风险与红队）、Minto（综合与沟通）
+- 驱动一套设有关卡的项目推进流程 —— brief → 事实基础 → 分析 → 方案 → 压力测试 → 建议 → 路线图 —— 各关卡要求高管确认问题本身、方向和最终建议
+- **Boardroom（圆桌会议模式）：** 召集 3-4 位相关成员就一个尖锐问题展开辩论，先通过并行子智能体各自独立表态（避免群体思维），再交叉讨论，并保留会议记录
+- 硬性规则：不编造数字（每个数字都可追溯到有据可查的事实基础，或标注为假设）、提出建议前必须有三个真实方案、上会前必须运行事前验尸、"战略即取舍" —— 每份建议都必须说明应停止做什么
+
+**触发短语：** "是否应该投资 / 建设 / 收购 / 进入……"、"制定战略"、"评估这个机会"、"给这份计划做压力测试"、"运行事前验尸"、"召集董事会"
+
+**安装：**
+```bash
+npx skills add tronghieu/agent-skills --skill strategy-board
 ```
 
 ### system-prompt-creator
