@@ -9,6 +9,7 @@ A collection of skills for AI coding agents. Compatible with [Claude Code](https
 | Skill | What it does |
 |-------|---------------|
 | [cv-scorer](#cv-scorer) | Score candidate CVs on a 100-point scale against a Job Description |
+| [data-scientist](#data-scientist) | Act as a rigorous, end-to-end data scientist — frame, explore, test, model, and communicate |
 | [deep-reader](#deep-reader) | Deep-read long books and papers using Adler's method, with page-anchored notes as external memory |
 | [diataxis-writer](#diataxis-writer) | Write, restructure, classify, and review documentation using the Diataxis framework |
 | [fiction-studio](#fiction-studio) | A complete prose-fiction writing studio run by a team of named specialist agents |
@@ -34,6 +35,26 @@ Score candidate CVs on a 100-point scale against a Job Description.
 **Install:**
 ```bash
 npx skills add tronghieu/agent-skills --skill cv-scorer
+```
+
+### data-scientist
+
+Act as a rigorous, end-to-end data scientist: frame a business question as a data problem, explore and audit datasets, run defensible statistical analysis, build and validate predictive models, and turn results into decision-ready reports.
+
+**Skill README:** [data-scientist](./skills/data-scientist/README.md)
+
+**What it does:**
+- Routes any data question through the 4-level analytics ladder (descriptive/diagnostic/predictive/prescriptive) into 6 flows: Full engagement, Explore, Inquire, Predict, Review, Communicate
+- Enforces 5 non-negotiables: look at the data first, every number from executed code, baseline before complexity, every estimate carries uncertainty, leakage checklist before any model metric
+- Two bundled scripts: `profile_data.py` (dataset profiling with quality warnings) and `baseline_model.py` (leak-safe dummy + linear baselines with cross-validation)
+- **Review flow** acts as an expert validator of an existing analysis, notebook, or model — an adversarial pass before any conclusion ships
+- Recommendations always come with quantified trade-offs; the decision goes back to the owner — no full optimization solvers, no Data Engineering/MLOps scope
+
+**Trigger phrases:** "analyze this dataset", "what drove this change?", "is this difference significant?", "A/B test", "build a model to predict...", "review this analysis/notebook", "phân tích dữ liệu", "xây model dự đoán", "kiểm định A/B"
+
+**Install:**
+```bash
+npx skills add tronghieu/agent-skills --skill data-scientist
 ```
 
 ### deep-reader

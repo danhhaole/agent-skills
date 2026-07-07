@@ -9,6 +9,7 @@
 | 技能 | 功能简介 |
 |------|----------|
 | [cv-scorer](#cv-scorer) | 根据职位描述（JD）对候选人简历进行百分制评分 |
+| [data-scientist](#data-scientist) | 担任严谨的端到端数据科学家 —— 界定问题、探索、检验、建模并传达结论 |
 | [deep-reader](#deep-reader) | 使用 Adler 的方法深度阅读长篇书籍和论文，以按页码锚定的笔记作为外部记忆 |
 | [diataxis-writer](#diataxis-writer) | 使用 Diataxis 框架编写、重构、分类和审查文档 |
 | [fiction-studio](#fiction-studio) | 一个完整的小说创作工作室，由一支被命名的专家智能体团队运行 |
@@ -34,6 +35,26 @@
 **安装：**
 ```bash
 npx skills add tronghieu/agent-skills --skill cv-scorer
+```
+
+### data-scientist
+
+担任严谨的端到端数据科学家：把一个业务问题界定为数据问题，探索并审查数据集，进行经得起推敲的统计分析，构建并验证预测模型，并把结果转化为可供决策的报告。
+
+**技能 README：** [data-scientist](./skills/data-scientist/README.zh.md)
+
+**功能：**
+- 通过四级分析阶梯（描述性/诊断性/预测性/指导性）将任何数据问题路由到 6 种流程：Full engagement、Explore、Inquire、Predict、Review、Communicate
+- 执行 5 条不可动摇的原则：先看数据、每个数字都来自已运行的代码、先有基线再谈复杂度、每个估计值都带不确定性、相信任何模型指标前先查泄漏清单
+- 两个内置脚本：`profile_data.py`（带质量警告的数据集画像）和 `baseline_model.py`（带交叉验证、防泄漏的哑基线 + 线性基线）
+- **Review 流程** 扮演对现有分析、notebook 或模型的专业审阅者角色 —— 在任何结论发布前进行一轮对抗式审查
+- 建议始终附带量化的取舍；决策权始终交还给负责人 —— 不做完整的优化求解器，不涉及数据工程/MLOps 范畴
+
+**触发短语：** "分析这份数据集"、"是什么导致了这个变化？"、"这个差异有统计显著性吗？"、"A/B 测试"、"建一个模型来预测……"、"审查这份分析/notebook"、"phân tích dữ liệu"、"xây model dự đoán"、"kiểm định A/B"
+
+**安装：**
+```bash
+npx skills add tronghieu/agent-skills --skill data-scientist
 ```
 
 ### deep-reader

@@ -9,6 +9,7 @@ Bộ sưu tập skills dành cho các AI coding agent. Tương thích với [Cla
 | Skill | Chức năng |
 |-------|-----------|
 | [cv-scorer](#cv-scorer) | Chấm điểm CV ứng viên trên thang 100 điểm so với Mô tả Công việc |
+| [data-scientist](#data-scientist) | Đóng vai một nhà khoa học dữ liệu đầu-cuối, nghiêm ngặt — khung câu hỏi, khám phá, kiểm định, xây model, và truyền đạt |
 | [deep-reader](#deep-reader) | Đọc sâu sách và bài báo dài bằng phương pháp của Adler, dùng ghi chú neo theo trang làm bộ nhớ ngoài |
 | [diataxis-writer](#diataxis-writer) | Viết, tái cấu trúc, phân loại và review tài liệu bằng khung Diataxis |
 | [fiction-studio](#fiction-studio) | Một xưởng viết truyện hư cấu hoàn chỉnh, vận hành bởi đội agent chuyên gia được đặt tên |
@@ -34,6 +35,26 @@ Chấm điểm CV ứng viên trên thang 100 điểm so với Mô tả Công vi
 **Cài đặt:**
 ```bash
 npx skills add tronghieu/agent-skills --skill cv-scorer
+```
+
+### data-scientist
+
+Đóng vai một nhà khoa học dữ liệu đầu-cuối, nghiêm ngặt: khung một câu hỏi kinh doanh thành bài toán dữ liệu, khám phá và kiểm tra bộ dữ liệu, chạy phân tích thống kê có thể bảo vệ được, xây dựng và kiểm định model dự đoán, và biến kết quả thành báo cáo sẵn sàng cho quyết định.
+
+**README của skill:** [data-scientist](./skills/data-scientist/README.vi.md)
+
+**Chức năng:**
+- Điều phối mọi câu hỏi dữ liệu qua thang 4 cấp phân tích (mô tả/chẩn đoán/dự đoán/khuyến nghị) vào 6 flow: Full engagement, Explore, Inquire, Predict, Review, Communicate
+- Thực thi 5 nguyên tắc bất di bất dịch: nhìn dữ liệu trước, mọi con số từ code đã chạy, baseline trước khi phức tạp, mọi ước lượng đi kèm độ bất định, checklist rò rỉ trước khi tin bất kỳ chỉ số model nào
+- Hai script đi kèm: `profile_data.py` (profiling bộ dữ liệu kèm cảnh báo chất lượng) và `baseline_model.py` (baseline dummy + tuyến tính an toàn rò rỉ với cross-validation)
+- **Flow Review** đóng vai chuyên gia thẩm định cho một phân tích, notebook, hoặc model đã có sẵn — một vòng đối kháng trước khi bất kỳ kết luận nào được công bố
+- Khuyến nghị luôn đi kèm đánh đổi được lượng hóa; quyết định luôn được trao lại cho chủ sở hữu — không giải các bài toán tối ưu hóa đầy đủ, không thuộc phạm vi Data Engineering/MLOps
+
+**Câu kích hoạt:** "phân tích bộ dữ liệu này", "điều gì gây ra thay đổi này?", "sự khác biệt này có ý nghĩa thống kê không?", "kiểm định A/B", "xây model dự đoán...", "review phân tích/notebook này", "phân tích dữ liệu", "xây model dự đoán", "kiểm định A/B"
+
+**Cài đặt:**
+```bash
+npx skills add tronghieu/agent-skills --skill data-scientist
 ```
 
 ### deep-reader
